@@ -43,7 +43,7 @@ def main() -> int:
     if "yes" not in o.read().decode():
         sudo(client, f"mkdir -p /home/<USER>/.ssh && chmod 700 /home/<USER>/.ssh")
         sudo(client, f"ssh-keygen -t ed25519 -N '' -f {key_path} -q", timeout=60)
-        sudo(client, f"chown lfernando:lfernando {key_path} {key_path}.pub", timeout=30)
+        sudo(client, f"chown <USER>:<USER> {key_path} {key_path}.pub", timeout=30)
 
     _, o, _ = client.exec_command(f"cat {key_path}.pub", timeout=15)
     pub = o.read().decode("utf-8").strip()
