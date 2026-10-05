@@ -11,8 +11,8 @@ import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
 USER = "lfernando"
-HOST = os.environ.get("RAVENNA_HOST", "100.91.89.48")
-REMOTE_BASE = "/home/lfernando/learning-agent"
+HOST = os.environ.get("RAVENNA_HOST", "<RAVENNA_TAILSCALE_IP>")
+REMOTE_BASE = "/home/<USER>/learning-agent"
 
 UPLOAD_DIRS = [
     (ROOT / "ravenna-home/backend", f"{REMOTE_BASE}/ravenna-home/backend"),

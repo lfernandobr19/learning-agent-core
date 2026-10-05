@@ -26,7 +26,7 @@ _load_dotenv(ROOT / ".env")
 _load_dotenv(ROOT / "scripts" / "vast-overnight.env")
 _load_dotenv(ROOT / "scripts" / "vast-host.env")
 
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 USER = "lfernando"
 
 UPLOAD = (

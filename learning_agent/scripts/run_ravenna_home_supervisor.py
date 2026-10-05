@@ -226,8 +226,8 @@ def fix_vm_workspace_mount(*, restart_docker: bool = False) -> bool:
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=30)
-        cmds = ["mkdir -p /home/lfernando/workspace-pc"]
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=30)
+        cmds = ["mkdir -p /home/<USER>/workspace-pc"]
         if restart_docker and not _api_healthy():
             cmds.append("docker restart ravenna-backend 2>/dev/null || true")
         for cmd in cmds:
@@ -252,10 +252,10 @@ def deploy_hotfix_files(*, restart_docker: bool = False) -> bool:
         import paramiko
 
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
-        vm_dir = "/home/lfernando/learning-agent"
+        vm_dir = "/home/<USER>/learning-agent"
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=30)
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=30)
         sftp = client.open_sftp()
         for rel in HOTFIX_FILES:
             src = ROOT / rel
@@ -374,11 +374,11 @@ def _missing_files_on_vm(relative_paths: list[str]) -> list[str]:
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=30)
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=30)
         missing: list[str] = []
         bases = (
-            "/home/lfernando/learning-agent",
-            "/home/lfernando/workspace-pc",
+            "/home/<USER>/learning-agent",
+            "/home/<USER>/workspace-pc",
         )
         for rel in relative_paths:
             found = False
@@ -408,11 +408,11 @@ def _pull_files_from_vm(relative_paths: list[str]) -> None:
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=30)
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=30)
         sftp = client.open_sftp()
         bases = (
-            "/home/lfernando/learning-agent",
-            "/home/lfernando/workspace-pc",
+            "/home/<USER>/learning-agent",
+            "/home/<USER>/workspace-pc",
         )
         for rel in relative_paths:
             dest = ROOT / rel

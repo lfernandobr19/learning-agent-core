@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
+import os
 import re
 import paramiko
-PWD = "#Lalaloopsy5201."
-VM_ENV = "/home/lfernando/learning-agent/.env"
-COMPOSE = "/home/lfernando/learning-agent/ravenna-ide"
+PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")  # required; never hardcode
+if not PWD:
+    raise SystemExit("Set RAVENNA_VM_PASSWORD in the environment (no hardcoded passwords).")
+VM_ENV = "/home/<USER>/learning-agent/.env"
+COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect("ravenna-vm", username="lfernando", password=PWD, timeout=15)
+c.connect("ravenna-vm", username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=15)
 sftp = c.open_sftp()
 text = sftp.file(VM_ENV, "r").read().decode("utf-8")
 text = re.sub(r"CHAT_MODEL_FAST=.*", "CHAT_MODEL_FAST=qwen2.5:7b", text)

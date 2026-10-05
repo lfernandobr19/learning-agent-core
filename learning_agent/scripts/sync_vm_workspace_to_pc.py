@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pull workspace edits VM -> PC (/home/lfernando/workspace-pc)."""
+"""Pull workspace edits VM -> PC (/home/<USER>/workspace-pc)."""
 from __future__ import annotations
 
 import os
@@ -15,7 +15,7 @@ from bootstrap_ravenna_vm import find_host  # noqa: E402
 
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 LOCAL = Path(os.environ.get("RAVENNA_PC_WORKSPACE", ROOT)).resolve()
-REMOTE = os.environ.get("RAVENNA_VM_WORKSPACE", "/home/lfernando/workspace-pc")
+REMOTE = os.environ.get("RAVENNA_VM_WORKSPACE", "/home/<USER>/workspace-pc")
 USER = "lfernando"
 
 SKIP_DIRS = {

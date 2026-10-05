@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
+import os
 import paramiko
 from pathlib import Path
-PWD = "#Lalaloopsy5201."
+PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")  # required; never hardcode
+if not PWD:
+    raise SystemExit("Set RAVENNA_VM_PASSWORD in the environment (no hardcoded passwords).")
 ROOT = Path(__file__).resolve().parents[2]
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect("ravenna-vm", username="lfernando", password=PWD, timeout=15)
+c.connect("ravenna-vm", username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=15)
 sftp = c.open_sftp()
 sftp.put(str(ROOT / "learning_agent/scripts/test_llm_ollama.py"), "/tmp/test_llm_ollama.py")
 sftp.close()

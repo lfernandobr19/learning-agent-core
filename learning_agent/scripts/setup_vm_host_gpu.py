@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT / "learning_agent" / "scripts"))
 
 from vm_workspace_registry import host_gpu_registry  # noqa: E402
 
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 COMPOSE = f"{VM_DIR}/ravenna-ide"
 USER = "lfernando"
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
@@ -24,7 +24,7 @@ PC_WORKSPACE = os.environ.get(
     "RAVENNA_PC_WORKSPACE",
     r"C:\Users\lfern\RAVENNA\learning-agent\learning-agent",
 )
-VM_WORKSPACE = "/home/lfernando/workspace-pc"
+VM_WORKSPACE = "/home/<USER>/workspace-pc"
 OLLAMA_PORT = os.environ.get("OLLAMA_PORT", "11434")
 ASSISTANT_MODEL = os.environ.get("OLLAMA_MODEL_ASSISTANT", "raven")
 MODEL = os.environ.get("OLLAMA_MODEL", "gemma4-raven")

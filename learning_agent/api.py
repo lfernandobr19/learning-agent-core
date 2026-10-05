@@ -6002,7 +6002,7 @@ def _sync_pc_folder_to_vm(mapping: dict[str, Any]) -> dict[str, Any]:
 
     `mapping` vem de `map_local_folder`: pode conter `source` (caminho Windows real,
     para pastas fora do espelho padrão) e `relative` (subcaminho remoto sob
-    /home/lfernando/workspace-pc).
+    /home/<USER>/workspace-pc).
     """
     import os as _os
 
@@ -6011,7 +6011,7 @@ def _sync_pc_folder_to_vm(mapping: dict[str, Any]) -> dict[str, Any]:
     password = _os.environ.get("RAVENNA_VM_PASSWORD", "").strip()
     if not password:
         return {"ok": False, "error": "RAVENNA_VM_PASSWORD não configurada no backend"}
-    vm_host = _os.environ.get("RAVENNA_VM_HOST", "100.91.89.48").strip()
+    vm_host = _os.environ.get("RAVENNA_VM_HOST", "<RAVENNA_TAILSCALE_IP>").strip()
     pc_root = _os.environ.get("RAVENNA_PC_WORKSPACE", "").strip() or r"C:\Users\lfern\RAVENNA\learning-agent\learning-agent"
     script = pc_root.replace("/", "\\").rstrip("\\") + r"\learning_agent\scripts\sync_pc_workspace_to_vm.py"
 

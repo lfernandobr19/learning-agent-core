@@ -180,8 +180,8 @@ def _file_on_vm(rel: str) -> bool:
 
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(os.environ.get("RAVENNA_VM_HOST", "ravenna-vm"), username="lfernando", password=pwd, timeout=20)
-        for base in ("/home/lfernando/learning-agent", "/app"):
+        client.connect(os.environ.get("RAVENNA_VM_HOST", "ravenna-vm"), username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=20)
+        for base in ("/home/<USER>/learning-agent", "/app"):
             _, out, _ = client.exec_command(f"test -f {base}/{rel} && echo OK", timeout=10)
             if "OK" in out.read().decode(errors="replace"):
                 client.close()
@@ -249,11 +249,11 @@ def _pull_from_vm(rel: str) -> None:
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=20)
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=20)
         sftp = client.open_sftp()
         dest = ROOT / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
-        for base in ("/home/lfernando/learning-agent", "/home/lfernando/workspace-pc"):
+        for base in ("/home/<USER>/learning-agent", "/home/<USER>/workspace-pc"):
             try:
                 sftp.get(f"{base}/{rel}", str(dest))
                 break

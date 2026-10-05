@@ -26,7 +26,7 @@ _load_dotenv(ROOT / "scripts" / "host-gpu.env")
 
 from vm_workspace_registry import host_gpu_registry  # noqa: E402
 
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 COMPOSE = f"{VM_DIR}/ravenna-ide"
 USER = "lfernando"
 

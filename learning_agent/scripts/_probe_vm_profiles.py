@@ -6,7 +6,7 @@ import paramiko
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect("ravenna-vm", username="lfernando", password=PWD, timeout=20)
+c.connect("ravenna-vm", username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=20)
 for path in (
     "/app/data/remote-servers.json",
     "/app/data/ide-workspace-roots.json",

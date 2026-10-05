@@ -447,7 +447,7 @@ def _allowed_browse_roots() -> tuple[Path, ...]:
         val = os.environ.get(key, "").strip()
         if val:
             items.append(Path(val).expanduser().resolve())
-    extras = ["/app", "/app/pc-workspace", "/home/lfernando"]
+    extras = ["/app", "/app/pc-workspace", "/home/<USER>"]
     if _host_mirror_available():
         extras.append(str(HOST_MIRROR))
     for extra in extras:

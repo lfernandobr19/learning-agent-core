@@ -104,10 +104,10 @@ def test_apply_username_override_clears_alias(isolated_store: Path) -> None:
             ssh_config_alias="<REMOTE_HOST>",
         )
     )
-    updated = rw._apply_username_override(prof, "luis_barbosa")
-    assert updated.user == "luis_barbosa"
+    updated = rw._apply_username_override(prof, "demo_user")
+    assert updated.user == "demo_user"
     assert updated.ssh_config_alias == ""
-    assert rw._format_connect_identity(updated) == "luis_barbosa@203.0.113.3:2772"
+    assert rw._format_connect_identity(updated) == "demo_user@203.0.113.3:2772"
 
 
 def test_browse_needs_password_on_auth_fail(monkeypatch: pytest.MonkeyPatch, isolated_store: Path) -> None:

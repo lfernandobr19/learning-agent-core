@@ -10,14 +10,14 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-COMPOSE = "/home/lfernando/learning-agent/ravenna-ide"
-VM_ENV = "/home/lfernando/learning-agent/.env"
+COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
+VM_ENV = "/home/<USER>/learning-agent/.env"
 USER = "lfernando"
-PWD = os.environ.get("RAVENNA_VM_PASSWORD", "#Lalaloopsy5201.")
+PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 ACCESS = "ravenna-vm"
 CANDIDATES = [
     "ravenna-vm",
-    "100.83.246.56",
+    "<TAILSCALE_IP_4>",
     "172.23.125.87",
 ] + [f"172.23.125.{i}" for i in range(80, 95)] + [f"172.23.112.{i}" for i in range(2, 30)]
 

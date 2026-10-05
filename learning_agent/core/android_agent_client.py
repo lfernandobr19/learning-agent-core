@@ -6,7 +6,7 @@ from typing import Any, Iterator
 
 import httpx
 
-DEFAULT_URL = "http://100.85.65.115:8781"
+DEFAULT_URL = "http://<PHONE_TAILSCALE_IP>:8781"
 DEFAULT_TOKEN = "ravenna-android-agent-2026"
 
 

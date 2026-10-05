@@ -7,7 +7,7 @@ import sys
 
 import paramiko
 
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 HOST = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
 
@@ -29,24 +29,24 @@ def main() -> int:
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(HOST, username="lfernando", password=PWD, timeout=30)
+    client.connect(HOST, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=30)
 
-    client.exec_command("mkdir -p /home/lfernando/.ssh && chmod 700 /home/lfernando/.ssh")
+    client.exec_command("mkdir -p /home/<USER>/.ssh && chmod 700 /home/<USER>/.ssh")
     _, o, _ = client.exec_command(
-        "test -f /home/lfernando/.ssh/ravenna_pc.pub && echo yes || echo no", timeout=15
+        "test -f /home/<USER>/.ssh/ravenna_pc.pub && echo yes || echo no", timeout=15
     )
     if "yes" not in o.read().decode():
         _, o, e = client.exec_command(
-            "ssh-keygen -t ed25519 -N '' -f /home/lfernando/.ssh/ravenna_pc -q",
+            "ssh-keygen -t ed25519 -N '' -f /home/<USER>/.ssh/ravenna_pc -q",
             timeout=60,
         )
         o.channel.recv_exit_status()
 
-    _, o, _ = client.exec_command("cat /home/lfernando/.ssh/ravenna_pc.pub", timeout=15)
+    _, o, _ = client.exec_command("cat /home/<USER>/.ssh/ravenna_pc.pub", timeout=15)
     pub = o.read().decode("utf-8").strip()
     print("PUBKEY:", pub)
 
-    code, out = sudo(client, "rm -rf /home/lfernando/workspace-pc/data && echo CLEANED")
+    code, out = sudo(client, "rm -rf /home/<USER>/workspace-pc/data && echo CLEANED")
     print("clean data:", code, out.strip()[-80:])
 
     code, out = sudo(

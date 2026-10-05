@@ -33,9 +33,9 @@ if not pwd:
 
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-client.connect(host, username="lfernando", password=pwd, timeout=30)
+client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=30)
 
-COMPOSE = "/home/lfernando/learning-agent/ravenna-ide"
+COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
 cmds = [
     "docker ps -a --format '{{.Names}} {{.Status}}'",
     f"cd {COMPOSE} && docker compose -f docker-compose.yml -f docker-compose.host-gpu.yml up -d backend 2>&1",

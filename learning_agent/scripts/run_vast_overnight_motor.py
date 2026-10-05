@@ -174,12 +174,12 @@ def _pull_canary() -> None:
         host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect(host, username="lfernando", password=pwd, timeout=20)
+        client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=pwd, timeout=20)
         sftp = client.open_sftp()
         for rel in (CANARY_MARKER, CANARY_TEST):
             dest = ROOT / rel
             dest.parent.mkdir(parents=True, exist_ok=True)
-            for base in ("/home/lfernando/learning-agent", "/app"):
+            for base in ("/home/<USER>/learning-agent", "/app"):
                 try:
                     sftp.get(f"{base}/{rel}", str(dest))
                     break

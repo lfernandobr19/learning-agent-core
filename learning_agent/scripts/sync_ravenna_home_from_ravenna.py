@@ -10,9 +10,9 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-HOST = os.environ.get("RAVENNA_HOST", "100.91.89.48")
+HOST = os.environ.get("RAVENNA_HOST", "<RAVENNA_TAILSCALE_IP>")
 USER = "lfernando"
-REMOTE_BASE = "/home/lfernando/learning-agent"
+REMOTE_BASE = "/home/<USER>/learning-agent"
 
 PULL_PATHS = [
     "ravenna-home/backend/main.py",

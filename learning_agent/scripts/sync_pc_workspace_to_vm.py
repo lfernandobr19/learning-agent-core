@@ -27,7 +27,7 @@ if SOURCE:
 else:
     LOCAL = (_LOCAL_BASE / _SUBFOLDER).resolve() if _SUBFOLDER else _LOCAL_BASE
 
-REMOTE_BASE = os.environ.get("RAVENNA_VM_WORKSPACE", "/home/lfernando/workspace-pc")
+REMOTE_BASE = os.environ.get("RAVENNA_VM_WORKSPACE", "/home/<USER>/workspace-pc")
 if SOURCE:
     REMOTE = f"{REMOTE_BASE}/{REMOTE_SUB}" if REMOTE_SUB else REMOTE_BASE
 elif _SUBFOLDER:

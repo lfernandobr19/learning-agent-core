@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 import paramiko
-PWD = "#Lalaloopsy5201."
+PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")  # required; never hardcode
+if not PWD:
+    raise SystemExit("Set RAVENNA_VM_PASSWORD in the environment (no hardcoded passwords).")
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect("ravenna-vm", username="lfernando", password=PWD, timeout=15)
+c.connect("ravenna-vm", username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=15)
 py = r'''
 import os, traceback
 from learning_agent.core import llm

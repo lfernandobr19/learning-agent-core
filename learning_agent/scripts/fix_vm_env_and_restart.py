@@ -9,8 +9,8 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-COMPOSE = "/home/lfernando/learning-agent/ravenna-ide"
-VM_ENV = "/home/lfernando/learning-agent/.env"
+COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
+VM_ENV = "/home/<USER>/learning-agent/.env"
 USER = "lfernando"
 HOST = os.environ.get("RAVENNA_VM_HOST", "")
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")

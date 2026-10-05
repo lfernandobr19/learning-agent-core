@@ -10,11 +10,11 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 COMPOSE = f"{VM_DIR}/ravenna-ide"
 HOST = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
 USER = "lfernando"
-PWD = os.environ.get("RAVENNA_VM_PASSWORD", "#Lalaloopsy5201.")
+PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
 FAST_MODEL = os.environ.get("OLLAMA_MODEL_FAST", "qwen2.5:0.5b")
 USE_GPU = os.environ.get("OLLAMA_USE_GPU", "auto").lower()  # auto | true | false

@@ -8,8 +8,8 @@ from typing import Any
 
 import paramiko
 
-RAVENNA_HOME_COMPOSE_DIR = "/home/lfernando/learning-agent/ravenna-ide"
-RAVENNA_HOME_FRONTEND = "/home/lfernando/learning-agent/ravenna-home/frontend"
+RAVENNA_HOME_COMPOSE_DIR = "/home/<USER>/learning-agent/ravenna-ide"
+RAVENNA_HOME_FRONTEND = "/home/<USER>/learning-agent/ravenna-home/frontend"
 COMPOSE_FILE_FLAGS = (
     "-f docker-compose.yml "
     "-f docker-compose.host-gpu.yml "
@@ -75,7 +75,7 @@ def is_ravenna_home_remote_command(command: str) -> bool:
     if "npm run build" in cmd or "npm test" in cmd:
         if "frontend" in cmd or "ravenna-home" in cmd:
             return True
-    if cmd.startswith("cd /home/lfernando/learning-agent/ravenna-ide"):
+    if cmd.startswith("cd /home/<USER>/learning-agent/ravenna-ide"):
         return True
     return False
 
@@ -106,8 +106,8 @@ def run_ssh_command(command: str, *, timeout: int = 600) -> dict[str, Any]:
     key_paths = [
         Path.home() / ".ssh" / "id_ed25519",
         Path.home() / ".ssh" / "id_rsa",
-        Path("/home/lfernando/.ssh/id_ed25519"),
-        Path("/home/lfernando/.ssh/id_rsa"),
+        Path("/home/<USER>/.ssh/id_ed25519"),
+        Path("/home/<USER>/.ssh/id_rsa"),
     ]
     pkey = None
     for key_path in key_paths:

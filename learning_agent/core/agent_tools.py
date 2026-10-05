@@ -967,7 +967,7 @@ def openai_tool_schemas(*, allowlist: list[str] | None = None) -> list[dict[str,
                 "name": "android_download_file",
                 "description": (
                     "Baixa um arquivo no celular a partir de uma URL http(s) "
-                    "(ex.: artefato Raven_Link em http://100.91.89.48:8100/artifacts/...)."
+                    "(ex.: artefato Raven_Link em http://<RAVENNA_TAILSCALE_IP>:8100/artifacts/...)."
                 ),
                 "parameters": {
                     "type": "object",

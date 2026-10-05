@@ -10,7 +10,7 @@ import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
 USER = "lfernando"
-REMOTE_ROOT = "/home/lfernando/learning-agent"
+REMOTE_ROOT = "/home/<USER>/learning-agent"
 
 SYNC_DIRS = [
     ("ravenna-home", f"{REMOTE_ROOT}/ravenna-home"),

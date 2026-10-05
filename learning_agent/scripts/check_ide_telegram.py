@@ -10,7 +10,7 @@ if not PWD:
 
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-c.connect(HOST, username="lfernando", password=PWD, timeout=20)
+c.connect(HOST, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=20)
 
 checks = [
     ("docker", "docker ps --format '{{.Names}}|{{.Status}}'"),

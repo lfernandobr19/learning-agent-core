@@ -10,8 +10,8 @@ import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
 LOCAL = ROOT / "ravenna-home"
-REMOTE = "/home/lfernando/learning-agent/ravenna-home"
-COMPOSE_REMOTE = "/home/lfernando/learning-agent/ravenna-ide/docker-compose.host-gpu.yml"
+REMOTE = "/home/<USER>/learning-agent/ravenna-home"
+COMPOSE_REMOTE = "/home/<USER>/learning-agent/ravenna-ide/docker-compose.host-gpu.yml"
 COMPOSE_LOCAL = ROOT / "ravenna-ide" / "docker-compose.host-gpu.yml"
 USER = "lfernando"
 
@@ -80,7 +80,7 @@ def main() -> int:
         sftp.close()
 
     recreate = (
-        "cd /home/lfernando/learning-agent/ravenna-ide && "
+        "cd /home/<USER>/learning-agent/ravenna-ide && "
         "docker compose -f docker-compose.yml -f docker-compose.host-gpu.yml up -d --force-recreate backend"
     )
     _, out, err = client.exec_command(recreate, timeout=180)

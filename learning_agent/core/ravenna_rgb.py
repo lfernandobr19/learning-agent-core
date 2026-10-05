@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 SCRIPT = ROOT / "scripts" / "ravenna_rgb_state.sh"
-HOST_SCRIPT = "/home/lfernando/learning-agent/scripts/ravenna_rgb_state.sh"
+HOST_SCRIPT = "/home/<USER>/learning-agent/scripts/ravenna_rgb_state.sh"
 ALPINE_IMAGE = os.environ.get("RAVENNA_RGB_NSENTER_IMAGE", "alpine:3.20")
 DIAG = Path(os.environ.get("RAVENNA_RGB_DIAG", str(ROOT / "data" / "diagnostics" / "ravenna-rgb-python.json")))
 

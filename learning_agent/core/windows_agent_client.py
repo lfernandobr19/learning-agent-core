@@ -10,7 +10,7 @@ from typing import Any, Iterator
 
 import httpx
 
-DEFAULT_URL = "http://100.125.215.17:8780"
+DEFAULT_URL = "http://<PC_TAILSCALE_IP>:8780"
 DEFAULT_TOKEN = "ravenna-win-agent-2026"
 
 
@@ -690,7 +690,7 @@ def send_media_to_downloads(media_id: str) -> dict[str, Any]:
     fname = src.name.split("-", 2)[-1] if src.name.count("-") >= 2 else src.name
     fname = re.sub(r"[^\w.\-]", "_", fname)[:80] or "arquivo.bin"
 
-    home_base = (os.environ.get("RAVENNA_HOME_PUBLIC_URL") or "http://100.91.89.48:8100").rstrip("/")
+    home_base = (os.environ.get("RAVENNA_HOME_PUBLIC_URL") or "http://<RAVENNA_TAILSCALE_IP>:8100").rstrip("/")
     home_token = (
         os.environ.get("RAVENNA_HOME_TOKEN")
         or os.environ.get("HOME_API_TOKEN")

@@ -58,9 +58,9 @@ RAVENNA_SYSTEM_BRIEF = (
 
 # Ravenna Home — mandato + integridade (estratégia é dela; sistema não microgerencia).
 HOME_DEVICES_BRIEF = (
-    "Peers Tailscale autorizados: ravenna (100.91.89.48, linux), "
-    "pc-do-luis (100.125.215.17, windows), "
-    "m55-de-luis (100.85.65.115, android — celular do Luis)."
+    "Peers Tailscale autorizados: ravenna (<RAVENNA_TAILSCALE_IP>, linux), "
+    "pc-home (<PC_TAILSCALE_IP>, windows), "
+    "phone-home (<PHONE_TAILSCALE_IP>, android — mobile device)."
 )
 
 HOME_AUTONOMY_CONTRACT = f"""Contrato Ravenna Home (mandato + integridade):

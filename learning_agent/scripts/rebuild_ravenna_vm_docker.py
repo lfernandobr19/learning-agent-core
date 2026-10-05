@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 HOST, USER = "172.26.235.186", "lfernando"
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
-COMPOSE = "/home/lfernando/learning-agent/ravenna-ide"
+COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
 
 
 def sudo(client, cmd, timeout=7200):
@@ -30,7 +30,7 @@ def main():
     uploads = [
         (ROOT / "ravenna-ide/Dockerfile.frontend", f"{COMPOSE}/Dockerfile.frontend"),
         (ROOT / "ravenna-ide/docker-compose.yml", f"{COMPOSE}/docker-compose.yml"),
-        (ROOT / ".dockerignore", f"/home/lfernando/learning-agent/.dockerignore"),
+        (ROOT / ".dockerignore", f"/home/<USER>/learning-agent/.dockerignore"),
     ]
     sftp = client.open_sftp()
     for local, remote in uploads:

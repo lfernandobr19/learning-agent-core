@@ -33,7 +33,7 @@ def main() -> int:
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     print(f"Connecting to {host}...")
-    client.connect(host, username="lfernando", password=PWD, timeout=30)
+    client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=30)
 
     code, out, err = run(client, f"curl -sf --max-time 10 http://{GPU_HOST}:11434/api/tags", 20)
     print("tags:", "OK" if "models" in out else out[:200])

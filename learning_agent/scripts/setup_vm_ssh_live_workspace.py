@@ -10,7 +10,7 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-VM_DIR = "/home/lfernando/learning-agent"
+VM_DIR = "/home/<USER>/learning-agent"
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 GPU_HOST = os.environ.get("RAVENNA_GPU_HOST", "pc-do-luis")
 PC_USER = os.environ.get("RAVENNA_PC_SSH_USER", "lfern")
@@ -36,12 +36,12 @@ def main() -> int:
     host = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(host, username="lfernando", password=PWD, timeout=30)
+    client.connect(host, username=os.environ.get("RAVENNA_VM_USER", "<USER>"), password=PWD, timeout=30)
 
-    key_path = "/home/lfernando/.ssh/ravenna_pc"
+    key_path = "/home/<USER>/.ssh/ravenna_pc"
     _, o, _ = client.exec_command(f"test -f {key_path} && echo yes || echo no", timeout=15)
     if "yes" not in o.read().decode():
-        sudo(client, f"mkdir -p /home/lfernando/.ssh && chmod 700 /home/lfernando/.ssh")
+        sudo(client, f"mkdir -p /home/<USER>/.ssh && chmod 700 /home/<USER>/.ssh")
         sudo(client, f"ssh-keygen -t ed25519 -N '' -f {key_path} -q", timeout=60)
         sudo(client, f"chown lfernando:lfernando {key_path} {key_path}.pub", timeout=30)
 
