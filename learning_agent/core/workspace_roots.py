@@ -506,7 +506,7 @@ def _browse_shortcuts() -> list[tuple[str, Path]]:
         shortcuts.append(("PC workspace", pc.resolve()))
     if _host_mirror_available():
         shortcuts.append(("Servidor", HOST_MIRROR.resolve()))
-        host_home = HOST_MIRROR / "home" / "lfernando"
+        host_home = HOST_MIRROR / "home" / "<USER>"
         if host_home.is_dir():
             shortcuts.append(("Home do servidor", host_home.resolve()))
         remote_app = host_home / "REMOTE_APP"

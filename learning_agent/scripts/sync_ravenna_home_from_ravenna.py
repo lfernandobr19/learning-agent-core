@@ -11,7 +11,7 @@ import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
 HOST = os.environ.get("RAVENNA_HOST", "<RAVENNA_TAILSCALE_IP>")
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 REMOTE_BASE = "/home/<USER>/learning-agent"
 
 PULL_PATHS = [

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
 VM_DIR = "/home/<USER>/learning-agent"
 HOST = os.environ.get("RAVENNA_VM_HOST", "ravenna-vm")
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 ACCESS = "ravenna-vm"
 

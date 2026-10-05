@@ -56,7 +56,7 @@ def resolve_vm_host() -> str:
 
 
 def resolve_vm_user() -> str:
-    return os.environ.get("RAVENNA_VM_USER", "lfernando").strip() or "lfernando"
+    return os.environ.get("RAVENNA_VM_USER", "<USER>").strip() or "<USER>"
 
 
 def is_ravenna_home_project(project_root: str | None) -> bool:

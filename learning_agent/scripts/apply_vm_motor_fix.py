@@ -28,7 +28,7 @@ from vm_workspace_registry import host_gpu_registry  # noqa: E402
 
 VM_DIR = "/home/<USER>/learning-agent"
 COMPOSE = f"{VM_DIR}/ravenna-ide"
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 
 UPLOAD = (
     "learning_agent/core/workspace_roots.py",

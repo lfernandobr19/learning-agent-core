@@ -152,7 +152,7 @@ def tailscale_public_host(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="172.26.235.186")
-    parser.add_argument("--user", default="lfernando")
+    parser.add_argument("--user", default="<USER>")
     parser.add_argument("--password", required=True)
     parser.add_argument("--tailscale-auth-key", default=os.environ.get("TAILSCALE_AUTH_KEY", ""), help="tskey-auth-...")
     parser.add_argument("--skip-upload", action="store_true")

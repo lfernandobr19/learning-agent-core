@@ -27,7 +27,7 @@ _load_dotenv(ROOT / "scripts" / "vast-overnight.env")
 _load_dotenv(ROOT / "scripts" / "vast-host.env")
 
 VM_DIR = "/home/<USER>/learning-agent"
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 
 UPLOAD = (
     "learning_agent/core/chat.py",

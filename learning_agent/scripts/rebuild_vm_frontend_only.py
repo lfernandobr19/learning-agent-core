@@ -4,7 +4,7 @@ import paramiko
 
 ROOT = __import__("pathlib").Path(__file__).resolve().parents[2]
 COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
-HOST, USER = "172.26.235.186", "lfernando"
+HOST, USER = "172.26.235.186", "<USER>"
 PWD = __import__("os").environ.get("RAVENNA_VM_PASSWORD", "")
 ACCESS = "ravenna-vm"
 

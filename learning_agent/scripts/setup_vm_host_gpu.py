@@ -17,7 +17,7 @@ from vm_workspace_registry import host_gpu_registry  # noqa: E402
 
 VM_DIR = "/home/<USER>/learning-agent"
 COMPOSE = f"{VM_DIR}/ravenna-ide"
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 GPU_HOST = os.environ.get("RAVENNA_GPU_HOST", "pc-do-luis")
 PC_WORKSPACE = os.environ.get(

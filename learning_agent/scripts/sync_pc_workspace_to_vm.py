@@ -34,7 +34,7 @@ elif _SUBFOLDER:
     REMOTE = f"{REMOTE_BASE}/{_SUBFOLDER}"
 else:
     REMOTE = REMOTE_BASE
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 
 SKIP_DIRS = {
     ".git",

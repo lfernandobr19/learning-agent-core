@@ -16,7 +16,7 @@ from bootstrap_ravenna_vm import find_host  # noqa: E402
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 LOCAL = Path(os.environ.get("RAVENNA_PC_WORKSPACE", ROOT)).resolve()
 REMOTE = os.environ.get("RAVENNA_VM_WORKSPACE", "/home/<USER>/workspace-pc")
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 
 SKIP_DIRS = {
     ".git",

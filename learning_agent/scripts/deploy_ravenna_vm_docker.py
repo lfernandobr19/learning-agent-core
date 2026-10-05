@@ -142,7 +142,7 @@ STUDENT_API_BASE=https://api.groq.com/openai/v1
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--host", default="172.26.235.186")
-    parser.add_argument("--user", default="lfernando")
+    parser.add_argument("--user", default="<USER>")
     parser.add_argument("--password", required=True)
     parser.add_argument("--skip-upload", action="store_true")
     parser.add_argument("--skip-build", action="store_true", help="Only restart compose")

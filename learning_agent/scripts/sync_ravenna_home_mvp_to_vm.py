@@ -9,7 +9,7 @@ from pathlib import Path
 import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 REMOTE_ROOT = "/home/<USER>/learning-agent"
 
 SYNC_DIRS = [

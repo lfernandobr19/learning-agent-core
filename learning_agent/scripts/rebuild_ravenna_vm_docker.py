@@ -5,7 +5,7 @@ import paramiko
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-HOST, USER = "172.26.235.186", "lfernando"
+HOST, USER = "172.26.235.186", "<USER>"
 PWD = os.environ.get("RAVENNA_VM_PASSWORD", "")
 COMPOSE = "/home/<USER>/learning-agent/ravenna-ide"
 

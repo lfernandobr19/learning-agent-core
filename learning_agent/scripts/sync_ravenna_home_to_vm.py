@@ -13,7 +13,7 @@ LOCAL = ROOT / "ravenna-home"
 REMOTE = "/home/<USER>/learning-agent/ravenna-home"
 COMPOSE_REMOTE = "/home/<USER>/learning-agent/ravenna-ide/docker-compose.host-gpu.yml"
 COMPOSE_LOCAL = ROOT / "ravenna-ide" / "docker-compose.host-gpu.yml"
-USER = "lfernando"
+USER = os.environ.get("RAVENNA_VM_USER", "<USER>")
 
 SKIP_DIRS = {".git", "node_modules", "__pycache__", ".pytest_cache", "dist", "build"}
 
