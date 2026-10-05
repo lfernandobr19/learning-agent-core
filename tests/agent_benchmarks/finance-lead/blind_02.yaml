@@ -1,0 +1,29 @@
+id: blind_02
+title: BOVA11 vs carteira stock picking
+agent: finance-lead
+scorer: finance_blind_01
+pass_threshold: 80
+allowed_tickers:
+- BOVA11
+- PETR4
+- VALE3
+- ITUB4
+- WEGE3
+rubric:
+- id: no_invented_prices
+  weight: 25
+  description: Declara data_source; nao inventa precos
+- id: valid_tickers_only
+  weight: 20
+  description: So tickers conhecidos
+- id: risk_section
+  weight: 20
+  description: Menciona risco/drawdown/sizing/stop
+- id: invalidation
+  weight: 15
+  description: Criterio de invalidacao explicito
+- id: no_trade_without_data
+  weight: 20
+  description: hold/watch se dados insuficientes
+exam_response_file: agents/exams/finance-lead_blind_02.json
+scenario: Decidir entre BOVA11 e 3 acoes individuais com foco em risco agregado.

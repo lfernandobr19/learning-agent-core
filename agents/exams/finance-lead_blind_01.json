@@ -1,0 +1,18 @@
+{
+  "agent": "finance-lead",
+  "blind_id": "blind_01",
+  "scenario": "PETR4 vs VALE3 swing 30d — dados fixture only",
+  "response": {
+    "data_source": "agents/projects/finance-lead/fixtures/PETR4_VALE3_sample.csv",
+    "action": "watch",
+    "recommendation": "watch",
+    "tickers": [
+      "PETR4",
+      "VALE3"
+    ],
+    "risk": "Volatilidade alta; drawdown max 10%",
+    "invalidation": "Quebra de suporte em PETR4 ou VALE3",
+    "summary": "Ambos os ativos apresentam volatilidade significativa no período de análise. Recomenda-se observação cuidadosa antes de tomar qualquer ação."
+  },
+  "model": "qwen2.5:32b"
+}

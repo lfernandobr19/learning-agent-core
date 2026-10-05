@@ -1,0 +1,5 @@
+# Calendário macro — AUTOMÁTICO (refresh_macro_calendar).
+# Este arquivo é opcional: use "overrides" só para eventos extras manuais.
+
+agent: finance-lead
+overrides: []

@@ -1,0 +1,31 @@
+agent: reliability-lead
+archetype: debug-optimizer
+title: Trilha Reliability Lead → Especialista
+
+milestones:
+  - level: 2
+    title: Debug e provas
+    topics: [proof_gate, run_proofs, errors]
+    actions: [debug_sweep, research_gaps]
+  - level: 3
+    title: Saúde do ecossistema
+    topics: [agent health, órfãos, registry]
+    actions: [agent_health_audit, error_roundtable]
+  - level: 4
+    title: Otimização de ciclos
+    topics: [autonomia, timeouts, event triggers]
+    actions: [optimize_cycle, execute_micro_sprint]
+  - level: 5
+    title: Especialista confiabilidade
+    topics: [zero falhas silenciosas, IDE estável]
+    actions: [ide_improvement_sprint, capability_assessment]
+
+ide_practice:
+  focus_paths:
+    - learning_agent/core/agent_autonomy.py
+    - learning_agent/core/agent_capability.py
+    - ravenna-ide/frontend/src/utils/
+  improvement_themes:
+    - painel de evolução e debug na IDE
+    - gatilhos de evento e observabilidade
+    - redução de flakiness nos testes

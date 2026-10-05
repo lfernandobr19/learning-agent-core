@@ -1,0 +1,30 @@
+id: blind_04
+title: Benchmark Cego Finance-Lead - Investimento Pessoa Física Brasil
+agent: finance-lead
+scorer: finance_blind_01
+pass_threshold: 80
+allowed_tickers:
+- ITSA4
+- USIM5
+- VALE3
+- PETR4
+- BBDC4
+rubric:
+- id: no_invented_prices
+  weight: 25
+  description: Declara data_source; nao inventa precos
+- id: valid_tickers_only
+  weight: 20
+  description: So tickers conhecidos
+- id: risk_section
+  weight: 20
+  description: Menciona risco/drawdown/sizing/stop
+- id: invalidation
+  weight: 15
+  description: Criterio de invalidacao explicito
+- id: no_trade_without_data
+  weight: 20
+  description: hold/watch se dados insuficientes
+exam_response_file: agents/exams/finance-lead_blind_04.json
+scenario: Investidor busca diversificar carteira com foco em empresas de capitalização
+  alta e média.

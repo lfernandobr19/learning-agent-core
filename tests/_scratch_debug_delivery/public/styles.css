@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0f172a;
+  color: #e5eefb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app-shell {
+  width: min(100%, 880px);
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.hero-card,
+.card-form,
+.card-list article {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+  padding: 20px;
+}
+
+.eyebrow {
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+}
+
+.summary-grid,
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.summary-grid article {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.summary-grid span {
+  display: block;
+  color: #bfdbfe;
+  font-size: 0.85rem;
+}
+
+.summary-grid strong {
+  font-size: 1.35rem;
+}
+
+.card-form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  min-height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: #38bdf8;
+  color: #082f49;
+  font-weight: 800;
+}
+
+.form-status {
+  min-height: 24px;
+  margin: 0;
+  color: #bfdbfe;
+}
+
+@media (min-width: 720px) {
+  .summary-grid,
+  .card-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

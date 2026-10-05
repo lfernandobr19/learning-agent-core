@@ -1,0 +1,63 @@
+agent: raven-readiness
+archetype: custom
+title: Preparação Total da Raven
+
+north_star: |
+  A Raven estará totalmente preparada quando o cérebro local for de alto nível (base ≥14B),
+  o corpus cobrir todos os domínios, os agentes atingirem L6, e a fábrica estiver verde.
+
+model_strategy:
+  distill_student: qwen2.5:7b
+  raven_base: qwen2.5:14b
+  raven_runtime: raven
+  note: |
+    Em 16GB RAM: destilar com 7B (rápido), pensar com 14B (raven).
+    Professor = Cursor (distill_from_cursor) ou Groq (distill_topic).
+
+targets:
+  min_distill_pairs: 80
+  min_cursor_pairs: 30
+  min_pairs_per_domain: 10
+  min_training_examples: 300
+  min_l6_score: 75
+
+phases:
+  - phase: 1
+    title: Elevar o cérebro
+    steps:
+      - ollama pull qwen2.5:14b
+      - RAVEN_BASE_MODEL=qwen2.5:14b no .env
+      - run_brain_pipeline (recriar raven)
+      - CHAT_MODEL=raven
+    actions: [brain_pipeline]
+  - phase: 2
+    title: Corpus de destilação
+    steps:
+      - distill_from_cursor por domínio (Cursor como professor)
+      - distillation_batch para volume
+      - cobrir backend, frontend, qa, data, reliability, agents
+    actions: [distill_from_cursor, distillation_batch]
+  - phase: 3
+    title: Dataset e recriação
+    steps:
+      - export_training após cada lote
+      - run_brain_pipeline a cada +20 pares
+    actions: [export_training, brain_pipeline]
+  - phase: 4
+    title: Fábrica e agentes L5
+    steps:
+      - software_excellence 100%
+      - 5 especialistas L5 com sprints verificados
+    actions: [software_excellence_sprint, capability_assessment, real_code_sprint]
+  - phase: 5
+    title: L6 e entrega
+    steps:
+      - model_parity_assessment em todos os core agents
+      - proof_gate verde
+      - projeto piloto completo sob demanda (smoke e2e)
+    actions: [model_parity_assessment, proof_gate, collab_dev_sprint]
+
+delivery_test: |
+  Quando todas as fases estiverem verdes, a Raven está pronta para pegar um pedido
+  de software completo (ex. ferramenta de gestão, SaaS, API+UI) e entregar com
+  agentes delegados, provas e iteração — sem depender de API em runtime.

@@ -1,0 +1,17 @@
+id: SHIP-003
+title: "Paper journal JSON + 10 trades simulados"
+agent: finance-lead
+status: done
+estimate_hours: 2
+completion_criterion: F3
+merged_at: "2026-06-10T03:00:00+00:00"
+commit: feat/ship-prove-train
+acceptance:
+  - "agents/projects/finance-lead/data/paper_journal.json com ≥10 entradas"
+  - "cada entrada tem slippage_pct documentado"
+files_touch:
+  - agents/projects/finance-lead/data/paper_journal.json
+tests:
+  - tests/test_finance_probes.py
+train_topic: "Paper trading — journal, benchmark e slippage simulado"
+created_at: "2026-06-10"

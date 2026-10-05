@@ -1,0 +1,43 @@
+# Modo operacional — mentor Ravenna (atualizado automaticamente)
+version: 1
+updated_at: "2026-06-10"
+
+focus:
+  primary_agent: finance-lead
+  goal: "Fase 1 consolidar (reasoning/quiz/proof) + Fase 2 paper decision loop"
+  weeks: 2
+  phase1_target_nights: 3
+  phase2_decision_mode: assisted
+
+frozen:
+  - new_agents
+  - core_l6_sprints
+  - ide_full_parity
+  - autonomy_24_7
+
+maintenance:
+  agents: [backend-lead, frontend-lead, qa-guardian, data-engineer, reliability-lead]
+  ide_killer_features:
+    - progress_dashboard
+    - observer
+    - agents_panel
+    - distillation_visible
+    - external_exams_panel
+
+train:
+  finance_overnight:
+    max_cycles_per_night: 1
+    interval_seconds: 900
+    aligned_to_ship_queue: true
+
+prove:
+  blind_benchmark_weekly: true
+  monthly_exam: true
+
+ship:
+  hours_per_day: 0
+  target_merges_per_week: 2
+  autonomous: true
+  auto_push: true
+  auto_after_train: true
+  max_auto_items_per_run: 2

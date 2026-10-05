@@ -1,0 +1,7 @@
+import pytest
+from chat import ChatHandler
+
+def test():
+    handler = ChatHandler()
+    assert handler.add_channel("mobile") == "Welcome to your home! The system is now online and ready for your commands."
+    assert handler.add_channel("other") == "Channel other added successfully."

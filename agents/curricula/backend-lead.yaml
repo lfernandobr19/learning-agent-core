@@ -1,0 +1,32 @@
+agent: backend-lead
+archetype: backend
+title: Trilha Backend Lead → Especialista
+
+milestones:
+  - level: 2
+    title: Contratos API
+    topics: [FastAPI, Pydantic, routers]
+    actions: [research_gaps, code_walk]
+  - level: 3
+    title: Persistência e async
+    topics: [SQLite, asyncio, WebSocket]
+    actions: [peer_question, weak_area_drill]
+  - level: 4
+    title: Testes de integração
+    topics: [pytest, TestClient, proof_gate]
+    actions: [execute_micro_sprint, peer_review]
+  - level: 5
+    title: Especialista backend
+    topics: [observability, camadas, provas verdes]
+    actions: [ide_improvement_sprint, capability_assessment]
+    criteria: [quiz_mastery_80, verified_micro_sprint, playbook_evolved]
+
+ide_practice:
+  focus_paths:
+    - learning_agent/api.py
+    - learning_agent/core/
+    - ravenna-ide/frontend/src/utils/api.ts
+  improvement_themes:
+    - endpoints REST e performance
+    - WebSocket theater e autonomia
+    - health checks e provas

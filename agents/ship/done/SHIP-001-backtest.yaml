@@ -1,0 +1,18 @@
+id: SHIP-001
+title: "Script paper_backtest reproduzível + fixture CSV"
+agent: finance-lead
+status: done
+estimate_hours: 2
+completion_criterion: F1
+merged_at: "2026-06-10T03:00:00+00:00"
+commit: feat/ship-prove-train
+acceptance:
+  - "python agents/projects/finance-lead/scripts/paper_backtest.py roda 2× com mesmo retorno"
+  - "pytest tests/test_finance_probes.py::test_f1_backtest_reproducible passa"
+files_touch:
+  - agents/projects/finance-lead/scripts/paper_backtest.py
+  - agents/projects/finance-lead/fixtures/PETR4_sample.csv
+tests:
+  - tests/test_finance_probes.py
+train_topic: "Backtest simples — SMA crossover e métricas de risco"
+created_at: "2026-06-10"

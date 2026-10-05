@@ -1,0 +1,19 @@
+{
+  "agent": "finance-lead",
+  "blind_id": "blind_03",
+  "scenario": "O cenário econômico brasileiro apresenta volatilidade, com expectativas de crescimento moderado para o próximo ano.",
+  "response": {
+    "data_source": "agents/projects/finance-lead/fixtures/PETR4_sample.csv",
+    "action": "watch",
+    "recommendation": "watch",
+    "tickers": [
+      "PETR4",
+      "VALE3",
+      "ITUB4"
+    ],
+    "risk": "Risco moderado devido à volatilidade do mercado; sizing 2% do patrimônio; stop abaixo do suporte",
+    "invalidation": "Se o índice Ibovespa cair mais de 10% em um mês",
+    "summary": "O cenário econômico brasileiro apresenta volatilidade, mas os setores de commodities e financeiro podem oferecer oportunidades de investimento."
+  },
+  "model": "llama-3.3-70b-versatile"
+}

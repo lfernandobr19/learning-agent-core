@@ -1,0 +1,61 @@
+version: 1
+name: ravenna-ide-rebuild
+display_name: Ravenna IDE — Treino L6
+archetype: custom
+description: |
+  Primeiro projeto completo pós-L6. Reconstruir ravenna-ide/ com paridade VS Code/Cursor.
+  Treino prático — qualidade sobre velocidade (~1 semana).
+focus: ravenna-ide, paridade Cursor, workbench, LSP, composer, proof_gate
+created_by: ravenna
+training:
+  duration_days: 7
+  quality_over_speed: true
+  first_l6_project: true
+  motor: ravenna
+  executor: cursor
+owners:
+  shell: frontend-lead
+  backend: backend-lead
+  qa: qa-guardian
+  reliability: reliability-lead
+  data: data-engineer
+learning:
+  enabled: true
+  tags:
+  - ide-rebuild
+  - ravenna-ide
+  - treino-l6
+  - cursor-parity
+  note_prefix: Treino IDE Ravenna
+  on_start:
+  - search_knowledge
+  - get_context_for_task
+  - get_related_errors
+  - get_peer_insights
+  on_complete:
+  - add_learning_note
+  - create_quiz
+  - record_session
+  - agent_share_insight
+  on_unknown:
+  - detect_agent_gaps
+  - search_and_learn
+  on_failure:
+  - record_failure
+  journal_every_action: true
+mcp_tools:
+  required:
+  - search_knowledge
+  - add_learning_note
+  - record_failure
+  - record_session
+  recommended:
+  - run_learning_closure
+  - prove_python_code
+  - search_code
+  - ide_completion_sprint
+  - ide_improvement_sprint
+files:
+  playbook: agents/projects/ravenna-ide-rebuild/playbook.md
+  week_plan: agents/projects/ravenna-ide-rebuild/week-plan.yaml
+  curriculum: agents/curricula/ravenna-ide-rebuild.yaml

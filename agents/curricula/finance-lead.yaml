@@ -1,0 +1,161 @@
+agent: finance-lead
+
+archetype: custom
+
+title: Trilha Finance Lead — especialista investimento PF
+
+
+
+north_star: |
+
+  Especialista refinado em finanças pessoais e investimento — mercado BR e USD,
+
+  macro, valuation, risco quantitativo, paper trading e journal L6.
+
+  Qualidade > velocidade. Cada tese, erro e decisão documentados com provas.
+
+
+
+quality_mode: true
+
+paper_trading_only: true
+
+live_orders: false
+
+
+
+milestones:
+
+  - level: 2
+
+    title: Fundamentos PF
+
+    topics:
+
+      - juros compostos e taxa real
+
+      - inflação IPCA vs meta
+
+      - reserva de emergência 6-12 meses
+
+      - perfil de risco capacidade vs tolerância
+
+      - orçamento pessoal e taxa de poupança
+
+    actions: [research_gaps, search_and_learn, weak_area_drill]
+
+    journal: required
+
+
+
+  - level: 3
+
+    title: Mercados Brasil
+
+    topics:
+
+      - ações B3 valuation P/L P/VP ROE
+
+      - FIIs vacância segmentos tributação
+
+      - ETFs B3 BOVA11 IVVB11 TER
+
+      - renda fixa Selic IPCA+ prefixado IR regressivo
+
+      - IR sobre ganhos capital ações FIIs
+
+    actions: [search_and_learn, distill_topic, create_quiz]
+
+    journal: required
+
+
+
+  - level: 4
+
+    title: Macro e internacional
+
+    topics:
+
+      - curva de juros BR e impacto em RF/equities
+
+      - câmbio USD/BRL exposição e hedge
+
+      - Fed e correlação com ativos BR
+
+      - ETFs internacionais e BDRs
+
+      - diversificação geográfica PF
+
+    actions: [distill_for_peers, peer_question, model_parity_assessment]
+
+    journal: required
+
+
+
+  - level: 5
+
+    title: Risco e quant
+
+    topics:
+
+      - drawdown max e recovery time
+
+      - Sharpe Sortino interpretação prática
+
+      - volatilidade anualizada e beta
+
+      - position sizing Kelly fracionado 1-2%
+
+      - backtest viés sobrevivência overfitting
+
+      - paper trading journal slippage benchmark
+
+    actions: [execute_micro_sprint, capability_assessment, code_walk]
+
+    journal: required
+
+
+
+  - level: 6
+
+    title: Decisão com provas (especialista)
+
+    topics:
+
+      - tese L6 premissa invalidação rollback
+
+      - rebalanceamento bandas alocação estratégica
+
+      - stress test Selic +200bp BRL +10%
+
+      - journal de trades paper vs benchmark CDI+IBOV
+
+      - compliance PF sem gestão terceiros
+
+      - microeconomia aplicada à decisão L6 (elasticidade, custo oportunidade)
+
+      - diversificação multi-fonte de dados (ações ETF FII multi-ticker)
+
+      - validação cruzada walk-forward em backtests L6
+
+      - notícias econômicas integradas à tese e invalidação
+
+    actions: [model_parity_assessment, proof_gate, learning_closure]
+
+    criteria: [parity_score_80, quiz_mastery_85, zero_unrecorded_errors]
+
+    journal: required
+
+
+
+ide_practice:
+
+  focus_paths: []
+
+  improvement_themes:
+
+    - planilhas e scripts de backtest Python
+
+    - dashboards de acompanhamento paper portfolio
+
+

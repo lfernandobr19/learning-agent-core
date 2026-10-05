@@ -1,0 +1,37 @@
+version: 1
+name: ravenna-home
+display_name: Ravenna Home
+archetype: custom
+description: Agente autônomo da casa — luzes, cenários HA e status do PC/GPU.
+focus: Home Assistant, PWA mobile, automação doméstica via Ravenna
+created_by: ravenna
+learning:
+  enabled: true
+  tags:
+    - home
+    - homeassistant
+    - pwa
+    - mobile
+  note_prefix: Agente ravenna-home
+  on_start:
+    - search_knowledge
+    - get_context_for_task
+    - get_project_lessons
+  on_complete:
+    - add_learning_note
+    - record_session
+  on_unknown:
+    - detect_agent_gaps
+    - search_code
+  on_failure:
+    - record_failure
+    - get_related_errors
+mcp_tools:
+  required:
+    - list_lights
+    - toggle_light
+    - run_scene
+  module: ravenna-home/tools/home_devices.py
+files:
+  - ravenna-home/backend/main.py
+  - ravenna-home/tools/home_devices.py

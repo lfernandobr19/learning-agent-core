@@ -1,0 +1,31 @@
+agent: ravenna-home
+archetype: custom
+title: Trilha Ravenna Home → Casa inteligente
+
+milestones:
+  - level: 2
+    title: Home Assistant básico
+    topics: [REST HA, entity_id, luzes]
+    actions: [research_gaps, code_walk]
+  - level: 3
+    title: PWA mobile
+    topics: [React, manifest, service worker]
+    actions: [peer_question, weak_area_drill]
+  - level: 4
+    title: Dual-motor chat + agente
+    topics: [channel mobile, gemma4-raven, proxy FastAPI]
+    actions: [execute_micro_sprint, peer_review]
+  - level: 5
+    title: Casa autônoma
+    topics: [cenários, GPU status, MCP tools]
+    actions: [ide_improvement_sprint, capability_assessment]
+    criteria: [quiz_mastery_80, verified_micro_sprint, playbook_evolved]
+
+ide_practice:
+  focus_paths:
+    - ravenna-home/backend/
+    - ravenna-home/frontend/
+    - ravenna-home/tools/
+  improvement_themes:
+    - automação residencial segura
+    - UX mobile-first

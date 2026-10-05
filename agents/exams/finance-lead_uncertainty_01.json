@@ -1,0 +1,14 @@
+{
+  "agent": "finance-lead",
+  "scenario_incomplete": true,
+  "scenario": "Analisar PETR4 vs VALE3 swing 30d — CSV de preços incompleto (últimos 5 dias faltando).",
+  "response": {
+    "action": "hold",
+    "recommendation": "hold",
+    "reason": "Dados de preço incompletos nos últimos 5 dias impossibilitam cálculo confiável de volatilidade e stop. Não operar até série completa ou fonte alternativa validada.",
+    "data_source": "fixtures/PETR4_sample.csv (incompleto para o cenário)",
+    "tickers_discussed": ["PETR4", "VALE3"],
+    "risk": "Operar com lacuna de dados aumenta risco de stop indevido e sizing errado.",
+    "invalidation": "Reavaliar quando série diária estiver completa por 30 sessões."
+  }
+}

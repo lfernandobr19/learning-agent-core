@@ -1,0 +1,30 @@
+# Universo diversificado — classes de ativo para treino finance-lead
+agent: finance-lead
+min_tickers: 4
+min_asset_classes: 3
+
+tickers:
+  - symbol: PETR4
+    asset_class: acoes_br
+    sector: energia
+  - symbol: VALE3
+    asset_class: acoes_br
+    sector: mineracao
+  - symbol: BOVA11
+    asset_class: etf_br
+    sector: indice
+  - symbol: IVVB11
+    asset_class: etf_internacional
+    sector: eua
+  - symbol: HGLG11
+    asset_class: fii
+    sector: logistico
+  - symbol: MXRF11
+    asset_class: fii
+    sector: papel
+  - symbol: KNRI11
+    asset_class: fii
+    sector: lajes_corporativas
+  - symbol: XPLG11
+    asset_class: fii
+    sector: logistico

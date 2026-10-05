@@ -1,0 +1,183 @@
+version: 1
+vision: 'A Ravenna IDE é um ambiente onde você interage com seus próprios agentes.
+  A Ravenna estrutura qualquer tipo de agente (backend, frontend, QA, dados, custom)
+  com aprendizado contínuo — cada agente evolui a cada sessão via MCP.
+
+  '
+ravenna:
+  role: primary-orchestrator
+  specialties:
+  - software-engineering
+  - agent-creation
+  - multi-agent-supervision
+  - continuous-learning
+kinds:
+  agent_project:
+    path_pattern: agents/projects/{name}/
+    purpose: Projeto completo — manifest, playbook, subagente e skill de aprendizado
+  cursor_subagent:
+    path_pattern: .cursor/agents/{name}.md
+    purpose: Subagente delegável no Cursor (Task / agents)
+  cursor_skill:
+    path_pattern: .cursor/skills/{name}/SKILL.md
+    purpose: Workflow especializado acionado por contexto
+  supervisor:
+    path_pattern: learning_agent/core/supervision_agents.py
+    purpose: Papel de supervisão no Observador (template Python)
+archetypes:
+- id: backend
+  label: Backend Engineer
+  summary: APIs, banco de dados, async, WebSockets
+- id: frontend
+  label: Frontend Engineer
+  summary: UI, React, CSS, a11y, testes frontend
+- id: qa-inspector
+  label: QA Inspector
+  summary: Vistorias, testes, correções e regressões
+- id: data
+  label: Data Engineer
+  summary: Dados, ETL, SQL, RAG e pipelines
+- id: custom
+  label: Custom Agent
+  summary: Agente sob medida para qualquer domínio
+supervisors:
+- id: cursor
+  label: Cursor Agent
+  focus: Coordenação, execução e provas
+- id: architect
+  label: Arquiteta
+  focus: Camadas, contratos e decisões estruturais
+- id: senior-fe
+  label: Frontend Sênior
+  focus: UI RemoteApp, a11y, testes frontend
+- id: senior-be
+  label: Backend Sênior
+  focus: API, async, WebSocket
+- id: reviewer
+  label: Revisor
+  focus: Segurança e regressões
+- id: mentor
+  label: Mentor
+  focus: Diretivas explícitas para a Ravenna
+- id: quiz-master
+  label: Quiz Master
+  focus: Consolidação e quizzes
+user_agents:
+- name: quiz-master
+  kind: cursor_subagent
+  file: .cursor/agents/quiz-master.md
+  parent: ravenna
+  focus: Quizzes e spaced repetition
+  learning: false
+- name: collab-agent-a
+  kind: agent_project
+  archetype: backend
+  file: .cursor/agents/collab-agent-a.md
+  project: agents/projects/collab-agent-a
+  parent: ravenna
+  focus: APIs
+  learning: true
+- name: collab-agent-b
+  kind: agent_project
+  archetype: frontend
+  file: .cursor/agents/collab-agent-b.md
+  project: agents/projects/collab-agent-b
+  parent: ravenna
+  focus: UI React
+  learning: true
+- name: backend-lead
+  kind: agent_project
+  archetype: backend
+  file: .cursor/agents/backend-lead.md
+  project: agents/projects/backend-lead
+  parent: ravenna
+  focus: FastAPI, SQLite, WebSocket, pytest e arquitetura de camadas
+  learning: true
+- name: frontend-lead
+  kind: agent_project
+  archetype: frontend
+  file: .cursor/agents/frontend-lead.md
+  project: agents/projects/frontend-lead
+  parent: ravenna
+  focus: React, TypeScript, CSS RemoteApp, componentes e acessibilidade
+  learning: true
+- name: qa-guardian
+  kind: agent_project
+  archetype: qa-inspector
+  file: .cursor/agents/qa-guardian.md
+  project: agents/projects/qa-guardian
+  parent: ravenna
+  focus: Qualidade, pytest, vitest, CI e checklist de entrega
+  learning: true
+- name: data-engineer
+  kind: agent_project
+  archetype: data
+  file: .cursor/agents/data-engineer.md
+  project: agents/projects/data-engineer
+  parent: ravenna
+  focus: SQL, ChromaDB, pipelines Python e métricas
+  learning: true
+- name: reliability-lead
+  kind: agent_project
+  archetype: debug-optimizer
+  file: .cursor/agents/reliability-lead.md
+  project: agents/projects/reliability-lead
+  parent: ravenna
+  focus: pytest, provas reais, auditoria de agentes, otimização de ciclos autônomos
+  learning: true
+- name: finance-lead
+  kind: agent_project
+  archetype: custom
+  file: .cursor/agents/finance-lead.md
+  project: agents/projects/finance-lead
+  parent: ravenna
+  focus: Finanças pessoais, mercados BR/USD, risco e paper trading
+  learning: true
+- name: ravenna-ide-rebuild
+  kind: agent_project
+  archetype: custom
+  file: agents/projects/ravenna-ide-rebuild/playbook.md
+  project: agents/projects/ravenna-ide-rebuild
+  parent: ravenna
+  focus: Treino L6 — reconstruir Ravenna IDE (1 semana)
+  learning: true
+- name: loop-agent-a
+  kind: agent_project
+  archetype: backend
+  file: .cursor/agents/loop-agent-a.md
+  project: agents/projects/loop-agent-a
+  parent: ravenna
+  focus: APIs
+  learning: true
+- name: loop-agent-b
+  kind: agent_project
+  archetype: frontend
+  file: .cursor/agents/loop-agent-b.md
+  project: agents/projects/loop-agent-b
+  parent: ravenna
+  focus: UI
+  learning: true
+- name: cap-agent-test
+  kind: agent_project
+  archetype: backend
+  file: .cursor/agents/cap-agent-test.md
+  project: agents/projects/cap-agent-test
+  parent: ravenna
+  focus: APIs
+  learning: true
+- name: auto-agent-a
+  kind: agent_project
+  archetype: backend
+  file: .cursor/agents/auto-agent-a.md
+  project: agents/projects/auto-agent-a
+  parent: ravenna
+  focus: APIs
+  learning: true
+- name: auto-agent-b
+  kind: agent_project
+  archetype: frontend
+  file: .cursor/agents/auto-agent-b.md
+  project: agents/projects/auto-agent-b
+  parent: ravenna
+  focus: UI
+  learning: true

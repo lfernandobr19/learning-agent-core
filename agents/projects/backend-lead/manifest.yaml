@@ -1,0 +1,55 @@
+version: 1
+name: backend-lead
+display_name: Backend Lead
+archetype: backend
+description: Especialista backend — APIs, persistência, async e testes de servidor.
+focus: FastAPI, SQLite, WebSocket, pytest e arquitetura de camadas
+created_by: ravenna
+learning:
+  enabled: true
+  tags:
+  - backend
+  - api
+  - fastapi
+  - database
+  - async
+  note_prefix: Agente backend-lead
+  on_start:
+  - search_knowledge
+  - get_context_for_task
+  - get_related_errors
+  - get_peer_insights
+  on_complete:
+  - add_learning_note
+  - create_quiz
+  - record_session
+  - agent_share_insight
+  on_unknown:
+  - detect_agent_gaps
+  - agent_research_gaps
+  - search_and_learn
+  - search_code
+  on_failure:
+  - record_failure
+  peer_learning:
+    enabled: true
+    share_with: all_agents
+    absorb_from: all_agents
+    roundtable: true
+mcp_tools:
+  required:
+  - search_knowledge
+  - get_context_for_task
+  - search_code
+  - add_learning_note
+  - record_failure
+  recommended:
+  - prove_python_code
+  - create_quiz
+  - record_session
+  - search_and_learn
+  - get_related_errors
+files:
+  agent: .cursor/agents/backend-lead.md
+  playbook: agents/projects/backend-lead/playbook.md
+  learning_skill: .cursor/skills/backend-lead-learning/SKILL.md

@@ -1,0 +1,22 @@
+id: SHIP-007
+title: blind_02 finance-lead — resposta de exame calibrada
+agent: finance-lead
+status: done
+autonomous: true
+ship_handler: verify_and_commit
+estimate_hours: 0.5
+completion_criterion: F5
+acceptance:
+- tests/agent_benchmarks/finance-lead/blind_02.yaml existe
+- agents/exams/finance-lead_blind_02.json com response hold + data_source
+- blind_02 passa rubrica >= 70%
+files_touch:
+- tests/agent_benchmarks/finance-lead/blind_02.yaml
+- agents/exams/finance-lead_blind_02.json
+tests:
+- tests/test_blind_generator.py
+- tests/test_finance_probes.py
+train_topic: Decisao sob incerteza — benchmark cego calibrado
+created_at: '2026-06-10'
+merged_at: '2026-06-10T11:29:37+00:00'
+commit: nothing-to-commit

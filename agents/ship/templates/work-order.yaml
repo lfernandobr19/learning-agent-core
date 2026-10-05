@@ -1,0 +1,15 @@
+# Template — work order mergeável (copie para agents/ship/queue/)
+id: SHIP-XXX
+title: ""
+agent: finance-lead
+status: ready  # ready | in_progress | blocked | done
+estimate_hours: 2
+completion_criterion: F1  # F1..F5 ou IDE-K1
+acceptance:
+  - ""
+files_touch:
+  - ""
+tests:
+  - ""
+train_topic: ""  # tópico overnight alinhado (opcional)
+created_at: ""

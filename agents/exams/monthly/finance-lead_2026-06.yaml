@@ -1,0 +1,17 @@
+id: finance-lead_2026-06
+title: "Exame mensal — finance-lead (Jun 2026)"
+agent: finance-lead
+pass_threshold: 70
+duration_hours: 48
+
+tasks:
+  - "Revisar paper journal e relatório mensal"
+  - "Rodar backtest 2× e confirmar reprodutibilidade"
+  - "Responder blind_01 sem playbook"
+
+blind_ids:
+  - blind_01
+
+go_criteria:
+  external_min_pass: 4
+  blind_min_score: 70

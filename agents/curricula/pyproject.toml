@@ -1,0 +1,10 @@
+[project]
+name = "ravenna_home"
+version = "0.1.0"
+dependencies = [
+    "pytest",
+]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build-meta"

@@ -1,0 +1,49 @@
+agent: model-parity
+archetype: custom
+title: Paridade cognitiva — modelos de referência
+
+north_star: |
+  Cada agente deve ser equivalente aos modelos do seu plano Cursor em
+  conhecimento de domínio, raciocínio multi-passo e tomada de decisão —
+  medido por benchmarks reproduzíveis, não por volume de quiz.
+
+reference_tiers:
+  fast:
+    label: Rápido
+    cursor_analog: Composer Fast / modelos leves do plano
+    min_score: 65
+  balanced:
+    label: Balanceado
+    cursor_analog: Claude Sonnet / GPT-4o do plano
+    min_score: 75
+  reasoning:
+    label: Raciocínio
+    cursor_analog: Opus / o-series / thinking do plano
+    min_score: 85
+
+dimensions:
+  - id: knowledge
+    title: Conhecimento de domínio
+    weight: 0.35
+  - id: reasoning
+    title: Raciocínio multi-passo
+    weight: 0.35
+  - id: decision
+    title: Tomada de decisão
+    weight: 0.30
+
+completion_rule:
+  target_tier: balanced
+  min_composite: 75
+  all_dimensions_min: 65
+
+milestones:
+  - level: 6
+    title: Paridade cognitiva
+    criteria: [knowledge_ok, reasoning_ok, decision_ok, composite_ok]
+    actions: [model_parity_assessment, peer_quiz, real_code_sprint]
+
+config_hint: |
+  Configure no .env os modelos do SEU plano Cursor:
+  MODEL_PARITY_REFERENCE_FAST, MODEL_PARITY_REFERENCE_BALANCED,
+  MODEL_PARITY_REFERENCE_REASONING, MODEL_PARITY_TARGET_TIER=balanced

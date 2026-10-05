@@ -1,0 +1,49 @@
+name: Ship Prove CI
+
+on:
+  push:
+    branches: [main, master, feat/ship-prove-train]
+    paths:
+      - 'learning_agent/**'
+      - 'agents/**'
+      - 'tests/**'
+      - '.github/workflows/ship-prove-ci.yml'
+  pull_request:
+    branches: [main, master, feat/ship-prove-train]
+    paths:
+      - 'learning_agent/**'
+      - 'agents/**'
+      - 'tests/**'
+  workflow_dispatch:
+
+jobs:
+  prove-probes:
+    runs-on: ubuntu-latest
+    env:
+      RAG_DISABLE_CHROMA: 'true'
+      KMP_DUPLICATE_LIB_OK: 'TRUE'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install backend
+        run: pip install -e ".[dev]"
+
+      - name: Init DB for data probes
+        run: python -c "from learning_agent import db; db.init_db()"
+
+      - name: Pytest Ship Prove suite
+        run: |
+          pytest tests/test_finance_probes.py \
+            tests/test_backend_probes.py \
+            tests/test_maintenance_probes.py \
+            tests/test_ship_prove.py \
+            tests/test_blind_generator.py \
+            tests/test_telegram_alerts.py \
+            tests/test_finance_fetch_market_data.py \
+            tests/test_finance_lead_engine.py \
+            tests/test_finance_status.py \
+            -q --tb=short

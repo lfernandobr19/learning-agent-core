@@ -1,0 +1,37 @@
+# Critérios EXTERNOS — backend-lead
+
+agent: backend-lead
+display_name: Backend Lead
+min_pass: 4
+total: 5
+
+criteria:
+  - id: B1
+    title: Health check verde
+    description: GET /health retorna status ok.
+    probe: backend_health_ok
+    ship_hint: learning_agent/api.py
+
+  - id: B2
+    title: OpenAPI disponível
+    description: Schema OpenAPI acessível (FastAPI).
+    probe: backend_openapi_available
+    ship_hint: learning_agent/api.py
+
+  - id: B3
+    title: Sprint pytest core
+    description: test_sprint_backend_lead_core passa.
+    probe: backend_sprint_tests
+    ship_hint: tests/agent_sprints/test_sprint_backend_lead_core.py
+
+  - id: B4
+    title: Doc de deploy
+    description: Markdown com run, env e health check.
+    probe: backend_deploy_doc
+    ship_hint: agents/projects/backend-lead/docs/deploy.md
+
+  - id: B5
+    title: Rotas /api documentadas
+    description: Lista mínima de rotas /api no doc.
+    probe: backend_api_routes_doc
+    ship_hint: agents/projects/backend-lead/docs/api-routes.md

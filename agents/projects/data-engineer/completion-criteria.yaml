@@ -1,0 +1,37 @@
+# Critérios EXTERNOS — data-engineer
+
+agent: data-engineer
+display_name: Data Engineer
+min_pass: 4
+total: 5
+
+criteria:
+  - id: D1
+    title: Sprint índices SQLite
+    description: idx_quiz e idx_agent presentes.
+    probe: data_sprint_core
+    ship_hint: tests/agent_sprints/test_sprint_data_engineer_core.py
+
+  - id: D2
+    title: Índices verificados
+    description: Probe direta nos índices idx_*.
+    probe: data_sqlite_indexes
+    ship_hint: learning_agent/db.py
+
+  - id: D3
+    title: Export HF SFT
+    description: train.jsonl com >= 50 exemplos.
+    probe: data_hf_export
+    ship_hint: data/training/hf_sft/train.jsonl
+
+  - id: D4
+    title: Playbook ETL
+    description: Playbook menciona ETL e pipeline.
+    probe: data_playbook_etl
+    ship_hint: agents/projects/data-engineer/playbook.md
+
+  - id: D5
+    title: Manifest do agente
+    description: manifest.yaml presente.
+    probe: data_manifest
+    ship_hint: agents/projects/data-engineer/manifest.yaml

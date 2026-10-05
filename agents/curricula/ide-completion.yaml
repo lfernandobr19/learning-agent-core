@@ -1,0 +1,55 @@
+agent: ide-completion
+archetype: frontend
+title: Ravenna IDE — Paridade Cursor
+
+north_star: |
+  A Ravenna IDE só estará CONCLUÍDA quando for equivalente ao Cursor em funcionalidades
+  e funcionamento: todas as ferramentas no mesmo nível e frontend impecável.
+
+completion_rule:
+  cursor_parity_min_pct: 100
+  frontend_polish_min_pct: 100
+  all_must_objectives_met: true
+
+milestones:
+  - level: 1
+    title: Workbench base
+    topics: [activity bar, explorer, monaco, terminal]
+    actions: [ide_improvement_sprint, ide_completion_sprint]
+  - level: 2
+    title: DevTools integrados
+    topics: [git, mcp, anexos, websocket]
+    actions: [ide_completion_sprint, real_code_sprint]
+  - level: 3
+    title: IA no fluxo de edição
+    topics: [chat context, inline AI, multi-file agent]
+    actions: [ide_improvement_sprint, collab_dev_sprint]
+  - level: 4
+    title: Paridade Cursor core
+    topics: [LSP, command palette, search, diff, debugger]
+    actions: [ide_completion_sprint, proof_gate]
+  - level: 5
+    title: IDE concluída
+    topics: [extensions, external MCP, rules UI, polish 100%]
+    criteria: [cursor_parity_100, frontend_polish_100]
+    actions: [capability_assessment, scheduled_consolidation]
+
+ide_practice:
+  focus_paths:
+    - ravenna-ide/frontend/src/
+    - learning_agent/api.py
+    - learning_agent/core/workspace.py
+    - learning_agent/core/terminal_session.py
+    - learning_agent/core/mcp_bridge.py
+    - learning_agent/core/ide_objectives.py
+  improvement_themes:
+    - paridade funcional com Cursor
+    - polish e acessibilidade do frontend
+    - LSP, Composer e edição multi-arquivo
+    - command palette e busca global
+
+owner_agents:
+  shell: frontend-lead
+  backend: backend-lead
+  qa: qa-guardian
+  reliability: reliability-lead

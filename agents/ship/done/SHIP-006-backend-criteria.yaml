@@ -1,0 +1,24 @@
+id: SHIP-006
+title: completion-criteria para backend-lead (template)
+agent: backend-lead
+status: done
+autonomous: true
+ship_handler: verify_and_commit
+estimate_hours: 0
+completion_criterion: B1
+acceptance:
+- agents/projects/backend-lead/completion-criteria.yaml com 5 critérios
+- probes mínimos em learning_agent/core/backend_probes.py
+files_touch:
+- agents/projects/backend-lead/completion-criteria.yaml
+- agents/projects/backend-lead/docs/deploy.md
+- agents/projects/backend-lead/docs/api-routes.md
+- learning_agent/core/backend_probes.py
+- learning_agent/core/agent_external_completion.py
+- tests/test_backend_probes.py
+tests:
+- tests/test_backend_probes.py
+train_topic: Definition of Done externa — APIs FastAPI
+created_at: '2026-06-10'
+merged_at: '2026-06-10T03:40:55+00:00'
+commit: c31efe9

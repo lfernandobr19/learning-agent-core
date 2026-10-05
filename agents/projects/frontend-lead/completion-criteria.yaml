@@ -1,0 +1,37 @@
+# Critérios EXTERNOS — frontend-lead
+
+agent: frontend-lead
+display_name: Frontend Lead
+min_pass: 4
+total: 5
+
+criteria:
+  - id: FE1
+    title: Sprint IDE bundle
+    description: package.json, App.tsx e websocket.ts presentes.
+    probe: frontend_sprint_core
+    ship_hint: tests/agent_sprints/test_sprint_frontend_lead_core.py
+
+  - id: FE2
+    title: Painel Progresso
+    description: AgentProgressDashboard com seção externo/interno.
+    probe: frontend_progress_dashboard
+    ship_hint: ravenna-ide/frontend/src/components/AgentProgressDashboard.tsx
+
+  - id: FE3
+    title: Painel destilação
+    description: DistillationPanel visível na IDE.
+    probe: frontend_distillation_panel
+    ship_hint: ravenna-ide/frontend/src/components/DistillationPanel.tsx
+
+  - id: FE4
+    title: Painel exames externos
+    description: ExternalExamsPanel integrado.
+    probe: frontend_external_exams_panel
+    ship_hint: ravenna-ide/frontend/src/components/ExternalExamsPanel.tsx
+
+  - id: FE5
+    title: Checklist de componentes
+    description: Doc com tsc, vitest e a11y.
+    probe: frontend_component_doc
+    ship_hint: agents/projects/frontend-lead/docs/component-checklist.md

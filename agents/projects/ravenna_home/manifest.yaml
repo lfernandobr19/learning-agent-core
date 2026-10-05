@@ -1,0 +1,3 @@
+learning: true
+mcp_tools: [ha, pwa]
+on_failure: restart

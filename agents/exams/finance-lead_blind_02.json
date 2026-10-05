@@ -1,0 +1,19 @@
+{
+  "agent": "finance-lead",
+  "blind_id": "blind_02",
+  "scenario": "Decidir entre BOVA11 e 3 acoes individuais com foco em risco agregado.",
+  "response": {
+    "data_source": "agents/projects/finance-lead/fixtures/BOVA11_sample.csv",
+    "action": "watch",
+    "recommendation": "watch",
+    "tickers": [
+      "BOVA11",
+      "PETR4",
+      "VALE3"
+    ],
+    "risk": "Risco de drawdown maximo de 10% com sizing de 3% do patrimonio e stop-loss abaixo do suporte",
+    "invalidation": "Se o indice BOVA11 ultrapassar o desempenho da carteira stock picking em 5% no periodo de 6 meses",
+    "summary": "A carteira stock picking com PETR4 e VALE3 pode oferecer retorno superior ao BOVA11, mas com risco agregado maior."
+  },
+  "model": "llama-3.3-70b-versatile"
+}

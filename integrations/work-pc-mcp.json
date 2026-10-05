@@ -1,0 +1,13 @@
+{
+  "_instrucoes": "Copie o bloco mcpServers para %USERPROFILE%\\.cursor\\mcp.json no PC do trabalho. Ajuste os caminhos se necessário.",
+  "mcpServers": {
+    "learning-agent": {
+      "command": "C:\\Users\\lfern\\RAVENNA\\learning-agent\\learning-agent\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "learning_agent.mcp_server"],
+      "cwd": "C:\\Users\\lfern\\RAVENNA\\learning-agent\\learning-agent",
+      "env": {
+        "LEARNING_DB": "C:\\Users\\lfern\\RAVENNA\\learning-agent\\learning-agent\\data"
+      }
+    }
+  }
+}

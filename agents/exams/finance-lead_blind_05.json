@@ -1,0 +1,15 @@
+{
+  "agent": "finance-lead",
+  "blind_id": "blind_05",
+  "response": {
+    "data_source": "fixtures locais",
+    "recommendation": "hold",
+    "action": "hold",
+    "tickers": [
+      "BOVA11",
+      "PETR4"
+    ],
+    "risk": "drawdown max 8%, sizing 2% por posicao",
+    "invalidation": "rompimento de suporte com volume"
+  }
+}

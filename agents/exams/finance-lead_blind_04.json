@@ -1,0 +1,15 @@
+{
+  "agent": "finance-lead",
+  "blind_id": "blind_04",
+  "response": {
+    "data_source": "fixtures locais",
+    "recommendation": "hold",
+    "action": "hold",
+    "tickers": [
+      "ITSA4",
+      "USIM5"
+    ],
+    "risk": "drawdown max 8%, sizing 2% por posicao",
+    "invalidation": "rompimento de suporte com volume"
+  }
+}

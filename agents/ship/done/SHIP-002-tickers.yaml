@@ -1,0 +1,18 @@
+id: SHIP-002
+title: "Lista valid_tickers + probe F4"
+agent: finance-lead
+status: done
+estimate_hours: 1
+completion_criterion: F4
+merged_at: "2026-06-10T03:00:00+00:00"
+commit: feat/ship-prove-train
+acceptance:
+  - "fixtures/valid_tickers.txt com ≥20 tickers B3"
+  - "probe finance_ticker_validation passa"
+files_touch:
+  - agents/projects/finance-lead/fixtures/valid_tickers.txt
+  - learning_agent/core/finance_probes.py
+tests:
+  - tests/test_finance_probes.py
+train_topic: "Tickers B3 — nomenclatura e validação"
+created_at: "2026-06-10"

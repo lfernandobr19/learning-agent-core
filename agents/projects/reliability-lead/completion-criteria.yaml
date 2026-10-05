@@ -1,0 +1,37 @@
+# Critérios EXTERNOS — reliability-lead
+
+agent: reliability-lead
+display_name: Reliability Lead
+min_pass: 4
+total: 5
+
+criteria:
+  - id: R1
+    title: Sprint proof suite
+    description: run_full_proof_suite com sqlite check.
+    probe: reliability_sprint_core
+    ship_hint: tests/agent_sprints/test_sprint_reliability_lead_core.py
+
+  - id: R2
+    title: Proof gate operacional
+    description: Suite com >= 3 checks incluindo sqlite.
+    probe: reliability_proof_gate
+    ship_hint: learning_agent/core/proofs.py
+
+  - id: R3
+    title: Ship pipeline status
+    description: build_ship_status retorna fila e velocity.
+    probe: reliability_ship_status
+    ship_hint: learning_agent/core/ship_pipeline.py
+
+  - id: R4
+    title: Playbook debug/proof
+    description: Playbook documenta proof_gate e debug.
+    probe: reliability_playbook
+    ship_hint: agents/projects/reliability-lead/playbook.md
+
+  - id: R5
+    title: Operating mode Ship
+    description: focus agent + ship.autonomous ativos.
+    probe: reliability_operating_mode
+    ship_hint: agents/ship/operating_mode.yaml

@@ -1,0 +1,54 @@
+agent: ravenna-ide-rebuild
+archetype: custom
+title: Ravenna IDE — Treino prático L6 (1 semana)
+
+north_star: |
+  Reconstruir ravenna-ide/ com paridade VS Code/Cursor. Primeiro projeto completo
+  pós-L6. Qualidade sobre velocidade. Cada ação e erro vira aprendizado persistente.
+
+training:
+  project_path: ravenna-ide/
+  duration_days: 7
+  journal_module: learning_agent.core.agent_action_journal
+  quality_mode: true
+
+milestones:
+  - level: 1
+    title: Workbench
+    topics: [activity bar, sidebar, editor center, auxiliary AI panel]
+    actions: [ide_improvement_sprint, proof_gate]
+  - level: 2
+    title: DevTools
+    topics: [git, terminal, search, command palette]
+    actions: [real_code_sprint, ide_completion_sprint]
+  - level: 3
+    title: AI integrada
+    topics: [chat context, composer, agents panel]
+    actions: [collab_dev_sprint, learning_closure]
+  - level: 4
+    title: Paridade core
+    topics: [LSP, debugger, diff, file watcher]
+    actions: [ide_completion_sprint, debug_sweep]
+  - level: 5
+    title: Entrega
+    topics: [extensions, polish, ide_completion 100%]
+    actions: [proof_gate, capability_assessment, scheduled_consolidation]
+
+ide_practice:
+  focus_paths:
+    - ravenna-ide/frontend/src/
+    - ravenna-ide/extensions/
+    - learning_agent/api.py
+    - learning_agent/core/workspace.py
+    - learning_agent/core/ide_objectives.py
+  improvement_themes:
+    - paridade funcional VS Code/Cursor
+    - organização e posicionamento de ferramentas
+    - journal de ações e erros por agente
+
+owner_agents:
+  - frontend-lead
+  - backend-lead
+  - qa-guardian
+  - reliability-lead
+  - data-engineer

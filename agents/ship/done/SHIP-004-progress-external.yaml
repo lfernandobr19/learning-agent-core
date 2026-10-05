@@ -1,0 +1,18 @@
+id: SHIP-004
+title: "Painel Progresso — externo vs interno + Ship velocity"
+agent: frontend-lead
+status: done
+estimate_hours: 2
+completion_criterion: IDE-K1
+merged_at: "2026-06-10T03:15:00+00:00"
+commit: feat/ship-prove-train
+acceptance:
+  - "Painel Progresso mostra critérios F1-F5 e blind score"
+  - "Alerta quando train_to_ship_ratio > 3"
+files_touch:
+  - ravenna-ide/frontend/src/components/AgentProgressDashboard.tsx
+  - learning_agent/core/agent_progress_dashboard.py
+tests:
+  - tests/test_ship_prove.py
+train_topic: "Dashboard de métricas externas vs L6 interno"
+created_at: "2026-06-10"

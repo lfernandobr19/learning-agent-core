@@ -1,0 +1,72 @@
+# Ravenna IDE — Plano de 1 semana (treino L6 pós-paridade cognitiva)
+# Qualidade > velocidade · Raven motor · Cursor braços
+
+project: ravenna-ide-rebuild
+target_path: ravenna-ide/
+north_star: |
+  IDE equivalente ao VS Code/Cursor em robustez — todas as ferramentas funcionais.
+  Cada agente registra TODA ação e TODO erro via agent_action_journal.
+
+rules:
+  - Nenhuma ação sem journal (log_action + learning_closure)
+  - Todo erro → record_failure + fix documentado antes de continuar
+  - proof_gate verde ao fim de cada dia
+  - Cursor implementa; Ravenna orquestra via MCP
+
+days:
+  - day: 1
+    title: Workbench e organização
+    owner: frontend-lead
+    objectives: [layout_vscode, command_palette, global_search, panel_tabs]
+    acceptance: [CommandPalette.tsx, GlobalSearchPanel.tsx, vitest smoke]
+    agents: [frontend-lead, qa-guardian]
+
+  - day: 2
+    title: Editor e arquivos
+    owner: frontend-lead
+    objectives: [monaco_tabs, file_watcher_ws, save_shortcuts, diff_editor_stub]
+    acceptance: [FileExplorer watch, DiffEditorPane, e2e open-save]
+    agents: [frontend-lead, backend-lead]
+
+  - day: 3
+    title: Git e terminal
+    owner: backend-lead
+    objectives: [git_panel_polish, terminal_pty, scm_diff]
+    acceptance: [GitPanel, TerminalPanel, api git routes]
+    agents: [backend-lead, qa-guardian]
+
+  - day: 4
+    title: AI no fluxo (Chat + Composer)
+    owner: frontend-lead
+    objectives: [chat_context_files, composer_panel, auxiliary_sidebar]
+    acceptance: [ChatInputBar @file, ComposerPanel wired]
+    agents: [frontend-lead, data-engineer]
+
+  - day: 5
+    title: MCP, agentes, observador
+    owner: backend-lead
+    objectives: [mcp_bridge, agents_panel, observer_ws, external_mcp_ui]
+    acceptance: [McpPanel invoke, AgentsPanel autonomy]
+    agents: [backend-lead, reliability-lead]
+
+  - day: 6
+    title: LSP e debug (core hard)
+    owner: backend-lead
+    objectives: [lsp_intellisense, debugger, problems_panel]
+    acceptance: [LSP proxy, DebugPanel functional]
+    agents: [backend-lead, frontend-lead, qa-guardian]
+
+  - day: 7
+    title: Extensions, polish, entrega
+    owner: frontend-lead
+    objectives: [extensions_host, rules_skills_ui, a11y_audit, ide_completion_100]
+    acceptance: [ide_completion complete, proof_gate green, demo gravado]
+    agents: [frontend-lead, qa-guardian, reliability-lead]
+
+cursor_prompt_template: |
+  @{owner} Treino L6 — Dia {day}: {title}
+  Projeto: ravenna-ide/ · Journal obrigatório em cada passo
+  Objetivos: {objectives}
+  Critérios: {acceptance}
+  Se falhar: record_failure + corrigir antes de avançar
+  Ravenna orquestra; você implementa no Cursor.

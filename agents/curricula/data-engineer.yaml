@@ -1,0 +1,31 @@
+agent: data-engineer
+archetype: data
+title: Trilha Data Engineer → Especialista
+
+milestones:
+  - level: 2
+    title: RAG e indexação
+    topics: [ChromaDB, embeddings, notas]
+    actions: [research_gaps, code_walk]
+  - level: 3
+    title: Pipelines de dados
+    topics: [SQLite, ETL, tags]
+    actions: [distill_for_peers, weak_area_drill]
+  - level: 4
+    title: Grafo e consolidação
+    topics: [knowledge graph, peer-learning]
+    actions: [graph_sync, scheduled_consolidation]
+  - level: 5
+    title: Especialista dados
+    topics: [RAG otimizado, métricas]
+    actions: [ide_improvement_sprint, export_training]
+
+ide_practice:
+  focus_paths:
+    - learning_agent/rag.py
+    - learning_agent/db.py
+    - data/
+  improvement_themes:
+    - indexação peer-learning
+    - métricas de evolução por agente
+    - export fine-tune

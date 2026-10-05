@@ -1,0 +1,55 @@
+version: 1
+name: finance-lead
+display_name: Finance Lead
+archetype: custom
+description: Finanças pessoais, mercados BR/USD, risco e paper trading — uso próprio.
+focus: macro, ações, FIIs, ETFs, câmbio, derivativos intro, backtest, compliance PF
+created_by: ravenna
+learning:
+  enabled: true
+  tags:
+  - finance
+  - investimento
+  - mercado
+  - risco
+  - paper-trading
+  note_prefix: Agente finance-lead
+  on_start:
+  - search_knowledge
+  - get_context_for_task
+  - get_related_errors
+  - get_peer_insights
+  on_complete:
+  - add_learning_note
+  - create_quiz
+  - record_session
+  - agent_share_insight
+  on_unknown:
+  - detect_agent_gaps
+  - agent_research_gaps
+  - search_and_learn
+  on_failure:
+  - record_failure
+  journal:
+    enabled: true
+    every_action: true
+    project: finance-lead-mastery
+  peer_learning:
+    enabled: true
+    share_with: all_agents
+    absorb_from: all_agents
+    roundtable: true
+mcp_tools:
+  required:
+  - search_knowledge
+  - add_learning_note
+  - record_session
+  recommended:
+  - search_and_learn
+  - create_quiz
+  - distill_topic
+  - record_failure
+files:
+  agent: .cursor/agents/finance-lead.md
+  playbook: agents/projects/finance-lead/playbook.md
+  learning_skill: .cursor/skills/finance-lead-learning/SKILL.md

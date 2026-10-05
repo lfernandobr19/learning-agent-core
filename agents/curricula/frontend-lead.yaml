@@ -1,0 +1,32 @@
+agent: frontend-lead
+archetype: frontend
+title: Trilha Frontend Lead → Especialista
+
+milestones:
+  - level: 2
+    title: Componentes React
+    topics: [React, TypeScript, hooks]
+    actions: [research_gaps, code_walk]
+  - level: 3
+    title: UI RemoteApp e a11y
+    topics: [CSS, acessibilidade, layout]
+    actions: [peer_quiz, weak_area_drill]
+  - level: 4
+    title: Testes Vitest
+    topics: [Vitest, component tests]
+    actions: [execute_micro_sprint, peer_review]
+  - level: 5
+    title: Especialista frontend
+    topics: [Observer, painéis, UX IDE]
+    actions: [ide_improvement_sprint, capability_assessment]
+    criteria: [quiz_mastery_80, verified_micro_sprint, playbook_evolved]
+
+ide_practice:
+  focus_paths:
+    - ravenna-ide/frontend/src/components/
+    - ravenna-ide/frontend/src/pages/
+    - ravenna-ide/frontend/src/styles/
+  improvement_themes:
+    - Observador e painéis laterais
+    - performance e legibilidade do chat
+    - acessibilidade e responsividade

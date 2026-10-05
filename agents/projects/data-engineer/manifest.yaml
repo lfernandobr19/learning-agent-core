@@ -1,0 +1,55 @@
+version: 1
+name: data-engineer
+display_name: Data Engineer
+archetype: data
+description: Dados, ETL, SQL, RAG e pipelines analíticos.
+focus: SQL, ChromaDB, pipelines Python e métricas
+created_by: ravenna
+learning:
+  enabled: true
+  tags:
+  - data
+  - sql
+  - etl
+  - rag
+  - analytics
+  note_prefix: Agente data-engineer
+  on_start:
+  - search_knowledge
+  - get_context_for_task
+  - get_related_errors
+  - get_peer_insights
+  on_complete:
+  - add_learning_note
+  - create_quiz
+  - record_session
+  - agent_share_insight
+  on_unknown:
+  - detect_agent_gaps
+  - agent_research_gaps
+  - search_and_learn
+  - search_code
+  on_failure:
+  - record_failure
+  peer_learning:
+    enabled: true
+    share_with: all_agents
+    absorb_from: all_agents
+    roundtable: true
+mcp_tools:
+  required:
+  - search_knowledge
+  - get_context_for_task
+  - search_code
+  - add_learning_note
+  - record_failure
+  recommended:
+  - prove_python_code
+  - search_and_learn
+  - create_quiz
+  - record_session
+  - index_codebase
+files:
+  agent: .cursor/agents/data-engineer.md
+  playbook: agents/projects/data-engineer/playbook.md
+  learning_skill: .cursor/skills/data-engineer-learning/SKILL.md

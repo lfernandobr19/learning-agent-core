@@ -1,0 +1,62 @@
+agent: software-excellence
+archetype: custom
+title: Fábrica de Software de Excelência
+
+north_star: |
+  A Ravenna estará pronta para criar software de excelência sob demanda quando o
+  ecossistema atingir maturidade cognitiva, cérebro local treinado e provas verdes.
+  A Raven Eco IDE é apenas aula prática.
+
+completion_rule:
+  factory_pillar_min_pct: 100
+  all_must_objectives_met: true
+  ide_practice_optional: true
+
+milestones:
+  - level: 1
+    title: Ecossistema cognitivo
+    topics: [agentes L5, sprints verificados, closures]
+    actions: [capability_assessment, real_code_sprint, learning_closure]
+  - level: 2
+    title: Memória e provas
+    topics: [RAG, proof gate, paridade L6]
+    actions: [proof_gate, active_learning, model_parity_assessment]
+  - level: 3
+    title: Cérebro Ravenna
+    topics: [destilação, export training, raven]
+    actions: [consult_teacher, export_training, brain_pipeline]
+  - level: 4
+    title: Entrega sob demanda
+    topics: [arquitetura, testes, revisão peer, playbook]
+    actions: [collab_dev_sprint, peer_review, evolve_playbook]
+  - level: 5
+    title: Fábrica pronta
+    topics: [software genérico, qualquer domínio, excelência]
+    criteria: [factory_ready_100]
+    actions: [software_excellence_sprint, scheduled_consolidation]
+
+practice_track:
+  title: Aula prática — Raven Eco IDE
+  optional: true
+  actions: [ide_improvement_sprint, ide_completion_sprint]
+  focus_paths:
+    - ravenna-ide/frontend/src/
+    - learning_agent/core/
+  themes:
+    - paridade Cursor como ginásio
+    - polish e ferramentas da IDE
+
+delivery_domains:
+  - APIs e backends resilientes
+  - frontends React/TS com a11y e testes
+  - pipelines de dados e observabilidade
+  - QA automatizado e provas verdes
+  - qualquer produto solicitado pelo usuário
+
+owner_agents:
+  orchestrator: ravenna
+  backend: backend-lead
+  frontend: frontend-lead
+  qa: qa-guardian
+  data: data-engineer
+  reliability: reliability-lead

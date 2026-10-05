@@ -1,0 +1,74 @@
+# Critérios EXTERNOS — finance-lead (passa/não passa, não quiz interno)
+# L6 interno só sobe com >= min_pass critérios verdes.
+
+agent: finance-lead
+display_name: Finance Lead
+min_pass: 6
+total: 11
+
+criteria:
+  - id: F1
+    title: Backtest reproduzível
+    description: Script roda 2× com mesmo resultado (±0,1%).
+    probe: finance_backtest_reproducible
+    ship_hint: agents/projects/finance-lead/scripts/paper_backtest.py
+
+  - id: F2
+    title: Relatório mensal
+    description: Markdown com tese, risco, sizing e critério de invalidação.
+    probe: finance_monthly_report
+    ship_hint: agents/projects/finance-lead/reports/
+
+  - id: F3
+    title: Paper journal
+    description: "≥10 trades simulados com slippage documentado."
+    probe: finance_paper_journal
+    ship_hint: data/finance-lead/paper_journal.json
+
+  - id: F4
+    title: Zero ticker inventado
+    description: Validação automática de tickers em outputs recentes.
+    probe: finance_ticker_validation
+    ship_hint: agents/projects/finance-lead/fixtures/valid_tickers.txt
+
+  - id: F5
+    title: Decisão sob incerteza
+    description: Cenário com dados incompletos → recusa operar com motivo.
+    probe: finance_uncertainty_decision
+    ship_hint: agents/exams/
+
+  - id: F6
+    title: "L6 — Validação cruzada temporal"
+    description: Walk-forward no backtest — ≥3 folds, desvio ≤25pp entre folds.
+    probe: finance_backtest_cross_validation
+    ship_hint: agents/projects/finance-lead/scripts/paper_backtest.py
+
+  - id: F7
+    title: "L6 — Dados diversificados"
+    description: "≥4 tickers, ≥3 classes de ativo (ações, ETF, FII) indexados."
+    probe: finance_diversified_data
+    ship_hint: agents/projects/finance-lead/scripts/fetch_diversified_data.py
+
+  - id: F8
+    title: "L6 — Notícias econômicas indexadas"
+    description: "≥3 notícias RSS/web em manifest recente (7 dias)."
+    probe: finance_economic_news_indexed
+    ship_hint: learning_agent/core/finance_economic_news.py
+
+  - id: F9
+    title: "L6 — Microeconomia PF aplicada"
+    description: Conteúdo microeconomia indexado (oferta, demanda, elasticidade).
+    probe: finance_microeconomics_content
+    ship_hint: agents/projects/finance-lead/content/microeconomics_pf.md
+
+  - id: F10
+    title: "Autonomia — Cotações frescas"
+    description: Manifest sem preços stale; divergência ref vs live ≤ limite (ou fixture fresh).
+    probe: finance_quote_freshness
+    ship_hint: learning_agent/core/finance_quote_verify.py
+
+  - id: F11
+    title: "Autonomia — Motor de risco"
+    description: Ordem que viola limites hard-coded é rejeitada (position, caixa, trades/dia).
+    probe: finance_risk_engine
+    ship_hint: learning_agent/core/finance_risk_engine.py

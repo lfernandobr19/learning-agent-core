@@ -1,0 +1,205 @@
+agent: finance-lead
+paper_trading_only: true
+dimensions_rotation:
+- knowledge
+- reasoning
+- decision
+teacher_topics:
+- level: 2
+  topic: Juros compostos, inflação e taxa real — Brasil
+  tags:
+  - finance
+  - fundamentos
+  - juros
+- level: 2
+  topic: Reserva de emergência e liquidez — quanto e onde
+  tags:
+  - finance
+  - reserva
+  - liquidez
+- level: 2
+  topic: 'Perfil de risco: capacidade vs tolerância'
+  tags:
+  - finance
+  - risco
+  - perfil
+- level: 3
+  topic: Ações B3 — P/L, P/VP, ROE e leitura de balanço intro
+  tags:
+  - finance
+  - acoes
+  - valuation
+- level: 3
+  topic: FIIs — P/VP, vacância, segmentos e tributação PF
+  tags:
+  - finance
+  - fiis
+  - renda
+- level: 3
+  topic: ETFs na B3 — BOVA11, IVVB11, custos e tracking error
+  tags:
+  - finance
+  - etf
+  - diversificacao
+- level: 3
+  topic: Imposto de renda sobre investimentos PF — ações, FIIs, RF
+  tags:
+  - finance
+  - ir
+  - compliance
+- level: 4
+  topic: Exposição USD — câmbio, hedge e ETFs internacionais
+  tags:
+  - finance
+  - cambio
+  - usd
+- level: 4
+  topic: Macro BR — Selic, IPCA, curva de juros e impacto em carteira
+  tags:
+  - finance
+  - macro
+  - brasil
+- level: 4
+  topic: Macro US — Fed, dólar e correlação com ativos BR
+  tags:
+  - finance
+  - macro
+  - fed
+- level: 5
+  topic: Drawdown, volatilidade e Sharpe ratio — interpretação prática
+  tags:
+  - finance
+  - risco
+  - quant
+- level: 5
+  topic: Position sizing — Kelly fracionado e regra 1-2% por trade
+  tags:
+  - finance
+  - sizing
+  - risco
+- level: 5
+  topic: Backtest intro — viés de sobrevivência e overfitting
+  tags:
+  - finance
+  - backtest
+  - quant
+- level: 5
+  topic: Paper trading — journal, benchmark e slippage simulado
+  tags:
+  - finance
+  - paper-trading
+  - journal
+- level: 6
+  topic: Tese de investimento L6 — premissa, invalidação, rollback
+  tags:
+  - finance
+  - decisao
+  - l6
+- level: 6
+  topic: Rebalanceamento trimestral — critérios e bandas de alocação
+  tags:
+  - finance
+  - rebalanceamento
+  - alocacao
+- level: 6
+  topic: Cenário stress — Selic +200bp e BRL +10% — plano de ação PF
+  tags:
+  - finance
+  - stress
+  - macro
+- level: 6
+  topic: Microeconomia L6 — elasticidade setorial e custo de oportunidade na tese
+  tags:
+  - finance
+  - microeconomics
+  - microeconomia
+  - l6
+- level: 6
+  topic: Diversificação L6 — multi-ticker multi-classe e manifest de dados
+  tags:
+  - finance
+  - diversificacao
+  - dados
+  - l6
+- level: 6
+  topic: Validação cruzada L6 — walk-forward e estabilidade entre folds
+  tags:
+  - finance
+  - backtest
+  - cross-validation
+  - l6
+- level: 6
+  topic: Notícias econômicas L6 — macro/micro na premissa e invalidação
+  tags:
+  - finance
+  - economic-news
+  - noticias
+  - l6
+- level: 3
+  topic: finance-lead-basics
+  tags:
+  - finance
+  - management
+- level: 4
+  topic: API Integration with Telegram Bot and Google Maps
+  tags:
+  - telegram
+  - google-maps-api
+l6_operational_focus:
+  dimension_pattern:
+  - reasoning
+  - knowledge
+  - reasoning
+  - knowledge
+  - decision
+  teacher_topics:
+  - level: 6
+    topic: Quiz mastery — FIIs tributação, macro Selic/IPCA, sizing Kelly
+    tags:
+    - finance
+    - quiz
+    - l6-operational
+  - level: 6
+    topic: Reasoning L6 — invalidação de tese quando dados contradizem premissa
+    tags:
+    - finance
+    - reasoning
+    - l6-operational
+  - level: 6
+    topic: Proof gate — backtest reprodutível e walk-forward estável
+    tags:
+    - finance
+    - proof-gate
+    - l6-operational
+  - level: 3
+    topic: FIIs — DY, vacância, calendário mensal e comparativo de segmentos
+    tags:
+    - finance
+    - fiis
+    - renda
+    - l6-operational
+  - level: 4
+    topic: Blind benchmark — tese L6 com tickers permitidos e rollback explícito
+    tags:
+    - finance
+    - blind
+    - l6-operational
+cursor_delegation:
+- 'Estude [TÓPICO] como especialista em investimento PF.
+
+  Formato: premissa → dados → riscos → critério de invalidação → paper trade.
+
+  Use search_knowledge primeiro; encerre com add_learning_note + create_quiz.
+
+  '
+- 'Monte uma tese L6 para alocação em FIIs vs ações vs RF dado perfil moderado 10
+  anos.
+
+  Trade-offs explícitos; uma decisão; métricas; rollback.
+
+  '
+- 'Explique como calcular Sharpe e max drawdown de uma carteira paper simulada.
+
+  Proponha script Python mínimo (pandas) e registre aprendizado.
+
+  '

@@ -1,0 +1,37 @@
+# Critérios EXTERNOS — qa-guardian
+
+agent: qa-guardian
+display_name: QA Guardian
+min_pass: 4
+total: 5
+
+criteria:
+  - id: Q1
+    title: Sprint rotas críticas
+    description: GET /api/agents retorna backend-lead.
+    probe: qa_sprint_core
+    ship_hint: tests/agent_sprints/test_sprint_qa_guardian_core.py
+
+  - id: Q2
+    title: Smoke suite IDE
+    description: test_agent_ide_smoke passa.
+    probe: qa_smoke_suite
+    ship_hint: tests/test_agent_ide_smoke.py
+
+  - id: Q3
+    title: CI GitHub Actions
+    description: Workflow com pytest e vitest.
+    probe: qa_ci_workflow
+    ship_hint: .github/workflows/ide-ci.yml
+
+  - id: Q4
+    title: Playbook smoke
+    description: Playbook documenta smoke e pytest.
+    probe: qa_playbook_smoke
+    ship_hint: agents/projects/qa-guardian/playbook.md
+
+  - id: Q5
+    title: Registry de agentes
+    description: finance, backend e qa no registry.
+    probe: qa_agents_registry
+    ship_hint: learning_agent/api.py

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-card" aria-label="Resumo financeiro">
+        <p class="eyebrow">Junho 2026</p>
+        <h1>Controle financeiro pessoal</h1>
+        <div class="summary-grid">
+          <article><span>Receitas</span><strong>R$ 5.000,00</strong></article>
+          <article><span>Despesas</span><strong>R$ 1.200,00</strong></article>
+          <article><span>Saldo</span><strong>R$ 3.800,00</strong></article>
+        </div>
+      </section>
+
+      <form class="card-form" aria-label="Nova transação">
+        <label>Descrição <input name="description" placeholder="Mercado" /></label>
+        <label>Categoria <input name="category" placeholder="Alimentação" /></label>
+        <label>Valor em centavos <input name="amountCents" inputmode="numeric" /></label>
+        <label>Data <input name="date" type="date" value="2026-06-15" /></label>
+        <label>Tipo
+          <select name="type">
+            <option value="expense">Despesa</option>
+            <option value="income">Receita</option>
+          </select>
+        </label>
+        <button type="submit">Adicionar transação</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <section class="card-list" aria-label="Orçamentos e metas">
+        <article><h2>Orçamento</h2><p>Moradia: R$ 1.200,00 de R$ 1.500,00</p></article>
+        <article><h2>Meta</h2><p>Reserva de emergência: 8 meses restantes</p></article>
+        <article><h2>Recorrentes</h2><p>Salário, aluguel, internet e assinaturas.</p></article>
+      </section>
+    </main>
+    <script>
+      const form = document.querySelector("form[aria-label='Nova transação']");
+      const status = document.querySelector(".form-status");
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        const body = {
+          description: data.get("description"),
+          category: data.get("category"),
+          amountCents: Number(data.get("amountCents")),
+          date: data.get("date"),
+          type: data.get("type"),
+        };
+        const response = await fetch("/api/transactions", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const payload = await response.json();
+        status.textContent = response.ok ? `Transação ${payload.id} adicionada.` : payload.error;
+      });
+    </script>
+  </body>
+</html>

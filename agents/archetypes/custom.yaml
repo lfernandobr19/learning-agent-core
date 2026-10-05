@@ -1,0 +1,39 @@
+id: custom
+label: Custom Agent
+summary: Agente sob medida — Ravenna estrutura domínio, aprendizado e fluxo do zero
+
+default_triggers: >
+  Quando o usuário definir um domínio que não se encaixa nos arquétipos padrão
+  ou pedir um agente especializado totalmente personalizado.
+
+focus: domínio personalizado definido pelo usuário
+
+domains:
+  - Definido pelo usuário na criação do agente
+  - Ravenna documenta escopo, limites e entregáveis esperados
+
+workflow:
+  - Ravenna coleta foco, gatilhos, tools e critérios de sucesso
+  - Estruture playbook e manifest antes de implementar
+  - Siga o loop de aprendizado padrão em toda sessão
+  - Evolua o playbook quando novos padrões emergirem
+
+proofs:
+  - Critérios de sucesso definidos pelo usuário ou pela Ravenna
+  - Provas reais alinhadas ao domínio (testes, validação manual documentada)
+
+learning_tags:
+  - custom-agent
+
+mcp_tools:
+  required:
+    - search_knowledge
+    - get_context_for_task
+    - add_learning_note
+    - record_failure
+  recommended:
+    - search_code
+    - search_and_learn
+    - create_quiz
+    - record_session
+    - prove_python_code

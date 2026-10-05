@@ -1,0 +1,21 @@
+# Feeds RSS — notícias macro/micro BR (fallback: busca web + headlines estáticas)
+agent: finance-lead
+max_items_per_feed: 3
+max_total_items: 12
+fallback_search_query: "noticias economia brasil Selic IPCA BCB hoje"
+
+static_headlines:
+  - title: "Selic e decisão do Copom — impacto em RF e equities"
+    summary: "Taxa básica influencia custo de oportunidade e múltiplos. Investidor PF revisa alocação RF vs risco."
+  - title: "IPCA e inflação — efeito micro em pricing setorial"
+    summary: "Setores com elasticidade baixa repassam custos; varejo e consumo discricionário sofrem compressão de margem."
+  - title: "Câmbio USD/BRL — exposição internacional e hedge via ETFs"
+    summary: "Movimento cambial afeta IVVB11, commodities e balanços de exportadoras. Diversificação geográfica mitiga parcialmente."
+
+feeds:
+  - name: InfoMoney
+    url: https://www.infomoney.com.br/feed/
+    tags: [economic-news, brasil, mercado]
+  - name: Valor Economia
+    url: https://valor.globo.com/economia/rss/
+    tags: [economic-news, brasil, macro]

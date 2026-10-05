@@ -1,0 +1,20 @@
+id: SHIP-008
+title: "Motor finance_decision_loop — paper L6 + Telegram"
+agent: finance-lead
+status: shipped
+shipped_at: "2026-06-13"
+estimate_hours: 3
+completion_criterion: F3
+acceptance:
+  - "finance_decision_loop gera JSON L6 a partir de manifest + news"
+  - "Probes F1/F4/F5 antes de commit"
+  - "Telegram /decision approve|register"
+  - "Playbook Práticas autônomas (atualizado)"
+files_touch:
+  - learning_agent/core/finance_decision_loop.py
+  - learning_agent/core/finance_consolidation.py
+  - learning_agent/channels/telegram_bot.py
+tests:
+  - tests/test_finance_decision_loop.py
+train_topic: "Tese L6 — premissa, invalidação, rollback paper"
+created_at: "2026-06-10"

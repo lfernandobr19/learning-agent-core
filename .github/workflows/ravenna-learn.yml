@@ -1,0 +1,40 @@
+name: Ravenna CI Learning
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  learn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Index codebase
+        run: python -m learning_agent.cli index-codebase
+
+      - name: Learning suggestions
+        run: |
+          python -c "from learning_agent.core import active_learning; import json; print(json.dumps(active_learning.suggest_learning(5), indent=2))"
+
+      - name: Run proofs
+        run: python -m learning_agent.cli run-proofs
+
+      - name: Export training data
+        run: |
+          python -c "from learning_agent.core import finetune; import json; print(json.dumps(finetune.export_training_data(), indent=2))"
+
+      - name: Sync to Supabase
+        if: env.SUPABASE_URL != ''
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python -m learning_agent.cli sync-push

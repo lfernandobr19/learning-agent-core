@@ -1,0 +1,31 @@
+agent: qa-guardian
+archetype: qa-inspector
+title: Trilha QA Guardian → Especialista
+
+milestones:
+  - level: 2
+    title: Checklists e regressão
+    topics: [pytest, vitest, checklist]
+    actions: [research_gaps, proof_gate]
+  - level: 3
+    title: Cobertura real
+    topics: [integration tests, e2e]
+    actions: [peer_quiz, error_roundtable]
+  - level: 4
+    title: Gates de qualidade
+    topics: [CI, proof_gate, peer_review]
+    actions: [debug_sweep, execute_micro_sprint]
+  - level: 5
+    title: Especialista QA
+    topics: [zero regressão, provas verdes]
+    actions: [ide_improvement_sprint, capability_assessment]
+
+ide_practice:
+  focus_paths:
+    - tests/
+    - ravenna-ide/frontend/src/**/*.test.tsx
+    - learning_agent/core/proofs.py
+  improvement_themes:
+    - testes do ecossistema multi-agente
+    - smoke tests da IDE
+    - relatórios de falha acionáveis

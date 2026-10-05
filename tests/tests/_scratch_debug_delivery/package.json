@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/finance.test.mjs",
+    "smoke": "node src/smoke.js",
+    "start": "node src/server.js"
+  }
+}
